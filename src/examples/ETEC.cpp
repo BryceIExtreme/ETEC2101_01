@@ -6,7 +6,7 @@
 using namespace std;
 
 
-int main()
+int main(int argc, char** argv)
 {
     int x = 42;
     double z = 3.14;
@@ -19,12 +19,13 @@ int main()
     Person q;
     Person* pptr = new Person(44, "Eric", "Davis");
 
-    p.first_name = "Bryce";
-    p.id = 43;
-    p.hourly_rate = 13.4f;
-    q.first_name = "Elena";
-    q.id = 12;
+    p.set_hourly_rate(13.5f);
+    p.set_hours_worked(23);
 
+
+    std::cout << "The pay for p is" << p.calculate_wage() <<  "\n";
     delete pptr;
+
+    return 0;
 }
 

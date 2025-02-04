@@ -11,14 +11,16 @@ private:
 	float hourly_rate;
 	unsigned int hourly_worked;
 
+public:
+	//Default Constructor
 	Person();
 
-	Person(int id, std::string first_name, std::string last_name);
+	//Constructor that requires parameters
+	Person(int start_id, std::string first_name, std::string last_name);
 
 	//Deconstructor
 	~Person();
-
-
+	
 	//Getter section
 	int get_id();
 	std::string get_first_name();
