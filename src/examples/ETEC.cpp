@@ -4,6 +4,7 @@
 #include <string>
 #include "person.h"
 using namespace std;
+using namespace example;
 
 
 int main(int argc, char** argv)
@@ -14,9 +15,9 @@ int main(int argc, char** argv)
 
     cin >> x;
 
-    Person p(38, "Jeffery", "Middleton");
-    Person q;
-    Person* pptr = new Person(44, "Eric", "Davis");
+    example::Person p(38, "Jeffery", "Middleton");
+    example::Person q;
+    example::Person* pptr = new example::Person(44, "Eric", "Davis");
 
     p.set_hourly_rate(13.5f);
     p.set_hours_worked(23);

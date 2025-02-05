@@ -18,12 +18,18 @@
     <ClInclude Include="..\..\include\examples\person.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\examples\person_database.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\examples\ETEC.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\examples\person.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\examples\person_database.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
