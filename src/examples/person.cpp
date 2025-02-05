@@ -12,6 +12,10 @@ float example::Person::calculate_wage()
 
 void example::Person::set_hourly_rate(float new_rate)
 {
+	if (new_rate < 0 || new_rate > 1000) 
+	{
+		throw std::runtime_error("Invalid rate of $" + std::to_string(new_rate));
+	}
 	hourly_rate = new_rate;
 }
 

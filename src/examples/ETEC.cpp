@@ -3,12 +3,15 @@
 #include <string.h>
 #include <string>
 #include "person.h"
+#include "person_database.h"
 using namespace std;
 using namespace example;
+#define MY_FNAME "..\\..\\media\\person_data.txt"
 
 
 int main(int argc, char** argv)
 {
+    example::PersonDatabase PD(MY_FNAME);
     int x = 42;
     double z = 3.14;
     float y = 3.14f;
