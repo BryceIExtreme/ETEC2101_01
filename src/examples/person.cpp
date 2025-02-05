@@ -1,4 +1,8 @@
 #include "person.h"
+#include <iostream>
+#include <string.h>
+#include <string>
+using namespace std;
 
 float Person::calculate_wage()
 {
@@ -18,7 +22,7 @@ void Person::set_hours_worked(unsigned int new_hours)
 
 Person:: ~Person()
 {
-	std::cout << "Person '" << first_name << "" << last_name << "' is about to";
+	std::cout << "Person '" << first_name << "" << last_name << "' is about to\n";
 }
 
 Person::Person()

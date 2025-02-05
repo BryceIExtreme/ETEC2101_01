@@ -11,11 +11,10 @@ int main(int argc, char** argv)
     int x = 42;
     double z = 3.14;
     float y = 3.14f;
-    cout << "x=" << x << "abc" << "Sample Text\n";
 
     cin >> x;
 
-    Person p;
+    Person p(38, "Jeffery", "Middleton");
     Person q;
     Person* pptr = new Person(44, "Eric", "Davis");
 
@@ -25,6 +24,8 @@ int main(int argc, char** argv)
 
     std::cout << "The pay for p is" << p.calculate_wage() <<  "\n";
     delete pptr;
+
+    std::cout << p.get_id() << " " << p.get_first_name() << "\n";
 
     return 0;
 }
