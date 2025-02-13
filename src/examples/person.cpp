@@ -1,69 +1,92 @@
-#include "person.h"
-#include <iostream>
-#include <string.h>
-#include <string>
-using namespace std;
-
-float example::Person::calculate_wage()
-{
-	//Simple function to calculate salary.
-	return hourly_rate * hourly_worked;
-}
-
-void example::Person::set_hourly_rate(float new_rate)
-{
-	if (new_rate < 0 || new_rate > 1000) 
-	{
-		throw std::runtime_error("Invalid rate of $" + std::to_string(new_rate));
-	}
-	hourly_rate = new_rate;
-}
-
-void example::Person::set_hours_worked(unsigned int new_hours)
-{
-	hourly_worked = new_hours;
-}
-
-example::Person:: ~Person()
-{
-	std::cout << "Person '" << first_name << "" << last_name << "' is about to\n";
-}
+#include <person.h>
 
 example::Person::Person()
 {
-	id = -1;
-	first_name = "?";
-	last_name = "?";
-	hourly_worked = 0;
-	hourly_rate = 0.0f;
+	mFirstName = mLastName = "???";
+	mID = 0;
+	mHoursWorked = 0;
+	mHourlyRate = 0.0f;
 }
 
-example::Person::Person(int start_id, std::string start_fname, std::string start_lname)
+
+
+example::Person::~Person()
 {
-	id = start_id;
-	first_name = start_fname;
-	last_name = start_lname;
-	hourly_rate = 0.0f;
-	hourly_worked = 0;
+	// Nothing to do here...just a place-holder for the moment.
 }
 
-int example::Person::get_id()
+
+
+example::Person::Person(std::string starting_fname, std::string starting_lname, unsigned int id, float starting_rate) :
+	mFirstName(starting_fname), mLastName(starting_lname), mID(id), mHourlyRate(starting_rate),
+	mHoursWorked(0)
 {
-	return id;
+	// Note the alternate syntax used to initialize our attributes.  Sometimes this notation is necessary
+	// since it assigns a value AS the attributes are created (the other version creates them, then
+	// overwrites the values stored).  This method is usually faster.
+
+	// Nothing to do here!
 }
+
 std::string example::Person::get_first_name()
 {
-	return first_name;
+	return mFirstName;
 }
+
+		
+
 std::string example::Person::get_last_name()
 {
-	return last_name;
+	return mLastName;
 }
-float example::Person::get_hourly_rate()
+
+	
+
+
+unsigned int example::Person::get_id()
 {
-	return hourly_rate;
+	return mID;
 }
-unsigned int example::Person::get_hourly_worked()
+
+
+		
+int example::Person::get_hours_worked()
 {
-	return hourly_worked;
+	return mHoursWorked;
+}
+
+
+
+float example::Person::get_rate()
+{
+	return mHourlyRate;
+}
+
+
+		
+void example::Person::set_hours_worked(int new_hours)
+{
+	mHoursWorked = new_hours;
+}
+
+
+
+// Note how you don't put the default value here (it's in the .h file)
+std::string example::Person::get_name(bool reversed)
+{
+	if (reversed)
+		return mLastName + ", " + mFirstName;
+	else
+		return mFirstName + " " + mLastName;
+}
+
+
+
+		
+float example::Person::get_salary(bool reset)
+{
+	int h = mHoursWorked;
+	if (reset)
+		mHoursWorked = 0;
+	return mHourlyRate * h;
 }

@@ -1,2 +1,4 @@
-.vs
 temp/*
+.vs
+*.exe
+*.pdb
