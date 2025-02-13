@@ -1,0 +1,171 @@
+\doxysection{example\+::Person Class Reference}
+\hypertarget{classexample_1_1_person}{}\label{classexample_1_1_person}\index{example::Person@{example::Person}}
+
+
+This is a simple class we\textquotesingle{}ll use to explore basic C++ OOP (Object-\/\+Oriented Programming) concepts. It\textquotesingle{}s not very useful in and of itself.  
+
+
+
+
+{\ttfamily \#include $<$person.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classexample_1_1_person_a13cef9dd175bcc612ae4fca575f91bc5}\label{classexample_1_1_person_a13cef9dd175bcc612ae4fca575f91bc5} 
+{\bfseries Person} ()
+\begin{DoxyCompactList}\small\item\em The DEFAULT CONSTRUCTOR. \end{DoxyCompactList}\item 
+\Hypertarget{classexample_1_1_person_ab88de04d70f4615a3563ae51ea611af6}\label{classexample_1_1_person_ab88de04d70f4615a3563ae51ea611af6} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Person} ()
+\begin{DoxyCompactList}\small\item\em This method isn\textquotesingle{}t really necessary to define in this class since we have no cleanup to do. \end{DoxyCompactList}\item 
+\Hypertarget{classexample_1_1_person_a85cb13dd10859c1df85d72a4621c318c}\label{classexample_1_1_person_a85cb13dd10859c1df85d72a4621c318c} 
+{\bfseries Person} (std\+::string starting\+\_\+fname, std\+::string starting\+\_\+lname, unsigned int id, float starting\+\_\+rate)
+\begin{DoxyCompactList}\small\item\em This is a constructor that takes initial values for most of the attributes. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classexample_1_1_person_acc7c6c1c1a81867676b7a9980e7a3dfa}{get\+\_\+first\+\_\+name}} ()
+\begin{DoxyCompactList}\small\item\em Gets the first name of this \doxylink{classexample_1_1_person}{Person} (an example of a GETTER) \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classexample_1_1_person_a5a0b466aa90d254ca9d4e78defc6ffb2}{get\+\_\+last\+\_\+name}} ()
+\begin{DoxyCompactList}\small\item\em Gets the last name of this \doxylink{classexample_1_1_person}{Person}. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{classexample_1_1_person_a413a460a163cd80afe72f1d38d2d8514}{get\+\_\+id}} ()
+\begin{DoxyCompactList}\small\item\em Gets the ID of this \doxylink{classexample_1_1_person}{Person}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classexample_1_1_person_a65ce00cd0d975eae66c70a3602b461c3}{get\+\_\+hours\+\_\+worked}} ()
+\begin{DoxyCompactList}\small\item\em Gets the hours this \doxylink{classexample_1_1_person}{Person} has worked this pay period. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classexample_1_1_person_a6c79090eaeddab1ed95bfd351af2d8ee}{get\+\_\+rate}} ()
+\begin{DoxyCompactList}\small\item\em Gets the hourly rate for this \doxylink{classexample_1_1_person}{Person}. \end{DoxyCompactList}\item 
+\Hypertarget{classexample_1_1_person_a02cba471db0d286320e823bba4a8072e}\label{classexample_1_1_person_a02cba471db0d286320e823bba4a8072e} 
+void {\bfseries set\+\_\+hours\+\_\+worked} (int new\+\_\+hours)
+\begin{DoxyCompactList}\small\item\em Sets the hours this \doxylink{classexample_1_1_person}{Person} has worked this pay period. This is an example of a SETTER. Note, but not providing a setter for the other attributes we make them "{}read only"{}. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classexample_1_1_person_a70ad796cf15d56facb9a1d9786b0fa22}{get\+\_\+name}} (bool reversed=true)
+\begin{DoxyCompactList}\small\item\em Compute the full-\/name of the person. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classexample_1_1_person_a961cb230658aea48972003527410098e}{get\+\_\+salary}} (bool reset=false)
+\begin{DoxyCompactList}\small\item\em Computes the salary of this. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classexample_1_1_person_a1ddb0f7b4af376a796a292774c800446}\label{classexample_1_1_person_a1ddb0f7b4af376a796a292774c800446} 
+std\+::string {\bfseries m\+First\+Name}
+\begin{DoxyCompactList}\small\item\em This is the \doxylink{classexample_1_1_person}{Person}\textquotesingle{}s first name. \end{DoxyCompactList}\item 
+\Hypertarget{classexample_1_1_person_ae59560fb0c802535e086be1c57be6511}\label{classexample_1_1_person_ae59560fb0c802535e086be1c57be6511} 
+std\+::string {\bfseries m\+Last\+Name}
+\begin{DoxyCompactList}\small\item\em This is the \doxylink{classexample_1_1_person}{Person}\textquotesingle{}s last name. \end{DoxyCompactList}\item 
+\Hypertarget{classexample_1_1_person_ac34349cfda9e55dca641c305d395d699}\label{classexample_1_1_person_ac34349cfda9e55dca641c305d395d699} 
+unsigned int {\bfseries m\+ID}
+\begin{DoxyCompactList}\small\item\em This is a (unique) ID assigned to this person. \end{DoxyCompactList}\item 
+\Hypertarget{classexample_1_1_person_a0ee332c7783fb539a8dc28eb1e1d4567}\label{classexample_1_1_person_a0ee332c7783fb539a8dc28eb1e1d4567} 
+int {\bfseries m\+Hours\+Worked}
+\begin{DoxyCompactList}\small\item\em The hours worked this pay period (could be negative) \end{DoxyCompactList}\item 
+\Hypertarget{classexample_1_1_person_a491e688adc589d8647e748e12302d258}\label{classexample_1_1_person_a491e688adc589d8647e748e12302d258} 
+float {\bfseries m\+Hourly\+Rate}
+\begin{DoxyCompactList}\small\item\em The rate (in dollars) per hour of this person. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This is a simple class we\textquotesingle{}ll use to explore basic C++ OOP (Object-\/\+Oriented Programming) concepts. It\textquotesingle{}s not very useful in and of itself. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classexample_1_1_person_acc7c6c1c1a81867676b7a9980e7a3dfa}\index{example::Person@{example::Person}!get\_first\_name@{get\_first\_name}}
+\index{get\_first\_name@{get\_first\_name}!example::Person@{example::Person}}
+\doxysubsubsection{\texorpdfstring{get\_first\_name()}{get\_first\_name()}}
+{\footnotesize\ttfamily \label{classexample_1_1_person_acc7c6c1c1a81867676b7a9980e7a3dfa} 
+std\+::string example\+::\+Person\+::get\+\_\+first\+\_\+name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the first name of this \doxylink{classexample_1_1_person}{Person} (an example of a GETTER) 
+
+\begin{DoxyReturn}{Returns}
+the \doxylink{classexample_1_1_person}{Person}\textquotesingle{}s first name
+\end{DoxyReturn}
+\Hypertarget{classexample_1_1_person_a65ce00cd0d975eae66c70a3602b461c3}\index{example::Person@{example::Person}!get\_hours\_worked@{get\_hours\_worked}}
+\index{get\_hours\_worked@{get\_hours\_worked}!example::Person@{example::Person}}
+\doxysubsubsection{\texorpdfstring{get\_hours\_worked()}{get\_hours\_worked()}}
+{\footnotesize\ttfamily \label{classexample_1_1_person_a65ce00cd0d975eae66c70a3602b461c3} 
+int example\+::\+Person\+::get\+\_\+hours\+\_\+worked (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the hours this \doxylink{classexample_1_1_person}{Person} has worked this pay period. 
+
+\begin{DoxyReturn}{Returns}
+the \doxylink{classexample_1_1_person}{Person}\textquotesingle{}s hours worked
+\end{DoxyReturn}
+\Hypertarget{classexample_1_1_person_a413a460a163cd80afe72f1d38d2d8514}\index{example::Person@{example::Person}!get\_id@{get\_id}}
+\index{get\_id@{get\_id}!example::Person@{example::Person}}
+\doxysubsubsection{\texorpdfstring{get\_id()}{get\_id()}}
+{\footnotesize\ttfamily \label{classexample_1_1_person_a413a460a163cd80afe72f1d38d2d8514} 
+unsigned int example\+::\+Person\+::get\+\_\+id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the ID of this \doxylink{classexample_1_1_person}{Person}. 
+
+\begin{DoxyReturn}{Returns}
+the \doxylink{classexample_1_1_person}{Person}\textquotesingle{}s id
+\end{DoxyReturn}
+\Hypertarget{classexample_1_1_person_a5a0b466aa90d254ca9d4e78defc6ffb2}\index{example::Person@{example::Person}!get\_last\_name@{get\_last\_name}}
+\index{get\_last\_name@{get\_last\_name}!example::Person@{example::Person}}
+\doxysubsubsection{\texorpdfstring{get\_last\_name()}{get\_last\_name()}}
+{\footnotesize\ttfamily \label{classexample_1_1_person_a5a0b466aa90d254ca9d4e78defc6ffb2} 
+std\+::string example\+::\+Person\+::get\+\_\+last\+\_\+name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the last name of this \doxylink{classexample_1_1_person}{Person}. 
+
+\begin{DoxyReturn}{Returns}
+the \doxylink{classexample_1_1_person}{Person}\textquotesingle{}s last name
+\end{DoxyReturn}
+\Hypertarget{classexample_1_1_person_a70ad796cf15d56facb9a1d9786b0fa22}\index{example::Person@{example::Person}!get\_name@{get\_name}}
+\index{get\_name@{get\_name}!example::Person@{example::Person}}
+\doxysubsubsection{\texorpdfstring{get\_name()}{get\_name()}}
+{\footnotesize\ttfamily \label{classexample_1_1_person_a70ad796cf15d56facb9a1d9786b0fa22} 
+std\+::string example\+::\+Person\+::get\+\_\+name (\begin{DoxyParamCaption}\item[{bool}]{reversed}{ = {\ttfamily true}}\end{DoxyParamCaption})}
+
+
+
+Compute the full-\/name of the person. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reversed} & true if we want "{}\+Last, First"{} or false if we want "{}\+First Last"{}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The full computed name of this person
+\end{DoxyReturn}
+\Hypertarget{classexample_1_1_person_a6c79090eaeddab1ed95bfd351af2d8ee}\index{example::Person@{example::Person}!get\_rate@{get\_rate}}
+\index{get\_rate@{get\_rate}!example::Person@{example::Person}}
+\doxysubsubsection{\texorpdfstring{get\_rate()}{get\_rate()}}
+{\footnotesize\ttfamily \label{classexample_1_1_person_a6c79090eaeddab1ed95bfd351af2d8ee} 
+float example\+::\+Person\+::get\+\_\+rate (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the hourly rate for this \doxylink{classexample_1_1_person}{Person}. 
+
+\begin{DoxyReturn}{Returns}
+hourly rate in dollars
+\end{DoxyReturn}
+\Hypertarget{classexample_1_1_person_a961cb230658aea48972003527410098e}\index{example::Person@{example::Person}!get\_salary@{get\_salary}}
+\index{get\_salary@{get\_salary}!example::Person@{example::Person}}
+\doxysubsubsection{\texorpdfstring{get\_salary()}{get\_salary()}}
+{\footnotesize\ttfamily \label{classexample_1_1_person_a961cb230658aea48972003527410098e} 
+float example\+::\+Person\+::get\+\_\+salary (\begin{DoxyParamCaption}\item[{bool}]{reset}{ = {\ttfamily false}}\end{DoxyParamCaption})}
+
+
+
+Computes the salary of this. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reset} & Set to true if we want to reset the hours worked after calling this method\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/example/person.\+h\item 
+src/example/person.\+cpp\end{DoxyCompactItemize}
