@@ -11,13 +11,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\include\example\person.h" />
+    <ClInclude Include="..\..\include\example\person_database.h" />
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="..\..\src\example\person.cpp" />
     <ClCompile Include="..\..\src\example\person_database.cpp" />
     <ClCompile Include="..\..\src\lab01_main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\include\example\person.h" />
-    <ClInclude Include="..\..\include\example\person_database.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -63,6 +63,7 @@
     <LinkIncremental>false</LinkIncremental>
     <OutDir>..\..\bin\vs2022\$(Configuration)\</OutDir>
     <IntDir>..\..\temp\vs2022\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_d</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>

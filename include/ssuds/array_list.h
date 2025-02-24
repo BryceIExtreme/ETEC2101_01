@@ -2,6 +2,7 @@
 #include <string>
 #include <stdexcept>
 #include <ostream>
+#include <initializer_list>
 
 // Note: in C++, a general tempate (like this one) must be defined inline
 // entirely in the .h file (no .cpp files).  
@@ -12,9 +13,9 @@ namespace ssuds
 	template <class T>
 	class ArrayList
 	{
-	// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-	// @ ATTRIBUTES                              @
-	// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+		// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+		// @ ATTRIBUTES                              @
+		// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 	protected:
 		/// The default (and minimum) capacity of an ArrayList
 		static const int msMinCapacity = 5;
@@ -29,23 +30,162 @@ namespace ssuds
 		/// but I'm attempting to use raw bytes here so we don't have to have a default constructor
 		/// for templated types.
 		unsigned char* mData;
-	
 
 
-	// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-	// @ CONSTRUCTORS / DESTRUCTORS              @
-	// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+		// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+		// @ CONSTRUCTORS / DESTRUCTORS              @
+		// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 	public:
-		/// Default constructor
-		ArrayList() : mSize(0), mCapacity(0), mData(nullptr)
+		class ArrayListIterator		// or iterator?
 		{
-			// intentionally empty
+		private:
+			// Some attributes here....
+			ArrayList* my_array_list;		// Keeps track of the ArrayList we're traversing.
+			int index;			// Keeps track of our current spot (and how many times we've
+			// been incremented)
+
+		public:
+			ArrayListIterator()
+			{
+				my_array_list = nullptr;
+				index = 0;
+			}
+
+			ArrayListIterator(ArrayList* owning_list, int starting_index)
+			{
+				my_array_list = owning_list;
+				index = starting_index;
+			}
+
+
+			bool operator != (const ArrayListIterator& rhs)
+			{
+				// Finish me!   We should return false if we're NOT like rhs
+				if (this != my_array_list)
+				{
+					return 0;
+				}
+			}
+
+			// This is a "unary" operator (no parameters).  Triggered by ++my_iterator
+			ArrayListIterator operator++()
+			{
+				// We change ourself and then return a copy of ourself
+
+				// First, advance our position
+				index++;
+
+
+				if (index > my_array_list.mSize)
+				{
+					my_array_list = NULL;
+				}
+				// We need to ensure when we're done traversing the ArrayList, that
+				// we are made to look like the special "null" iterator that gets
+				// returned by the end function.
+				return *this;
+			}
+
+			// Optional.  Triggered by my_iterator++;  Note the "Dummy" variable is just to distinguish
+			// from ++my_iterator, but plays no role.
+			ArrayListIterator operator++(int dummy)
+			{
+				
+				// We make a copy of ourself, then change ourself, then return the copy
+				index++;
+
+				if (index > my_array_list.mSize)
+				{
+					my_array_list = NULL;
+				}
+
+				return *this;
+			}
+
+
+			// This is called when we do something like    std::string cur_string = *my_iterator;
+			T& operator*()
+			{
+				// Our job is to return the value at the current "position" in the
+				// ArrayList we're iterating through.
+				return my_array_list->at(index);
+			}
+
+			// (Optional).  Maybe this too
+			ArrayListIterator operator+(int offset)
+			{
+				index = index + offset;
+			}
+			
+			ArrayListIterator(const ArrayListIterator& other_ali)
+			{
+				unsigned char* new_arrayI = nullptr;
+				new_arrayI = new unsigned char[other_ali.mSize * sizeof(T)];
+
+				// Copy data from the existing array
+				memcpy(new_arrayI, mData, mSize * sizeof(T));
+		
+				// 4. Make sure size and capacity attribute are correct.
+				mData = new_arrayI;
+				mCapacity = other_ali.mCapacity;
+				mSize = other_ali.mSize;
+				// 5. Return a reference to ME (to support chain assignments like a = b = c)
+				return *this;      // De-reference the this pointer to get a reference
+			}
+			ArrayListIterator operator=(const ArrayListIterator& other_ali)
+			{
+				unsigned char* new_arrayI = nullptr;
+				new_arrayI = new unsigned char[other_ali.mSize * sizeof(T)];
+
+				// Copy data from the existing array
+				memcpy(new_arrayI, mData, mSize * sizeof(T));
+
+				// Free the old array
+				delete[] mData;
+				// 4. Make sure size and capacity attribute are correct.
+				mData = new_arrayI;
+				mCapacity = other_ali.mCapacity;
+				mSize = other_ali.mSize;
+				// 5. Return a reference to ME (to support chain assignments like a = b = c)
+				return *this;      // De-reference the this pointer to get a reference
+			}
+
+
+		}; // end of ArrayListIterator nested class
+
+		/// Default constructor
+		ArrayList()
+		{
+			mSize = 0;
+			mCapacity = 0;
+			mData = nullptr;
 		};
+
+		// New initializer-list constructor
+		ArrayList(std::initializer_list<T>& init_list)
+		{
+			// We need to set our attributes to starting values.
+			mSize = 0;
+			mCapacity = 0;
+			mData = nullptr;
+
+			// init_list has size() method and an iterator, but that's it.
+			// We could use a manual iterator
+			typename std::initializer_list<T>::iterator it = init_list.begin();
+
+			// Or use a for-each loop
+			for (const T& cur_val : init_list)
+			{
+				// Do something with cur_val...
+				append(cur_val);
+			}
+		}
 
 
 
 		/// Destructor
-		~ArrayList() 
+		~ArrayList()
 		{
 			// Note that I used to worry about mData being null, but the delete operator
 			// already has an internal check to avoid freeing a null pointer, so adding our own
@@ -55,10 +195,53 @@ namespace ssuds
 		}
 
 
-	// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-	// @ OTHER METHODS (alphabetical)            @
-	// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+		// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+		// @ OTHER METHODS (alphabetical)            @
+		// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 	public:
+
+		// overload =operator using Method1 (could use method 2 or 3 as well)
+		ArrayList& operator=(const ArrayList& other_al)
+		{
+			// We want a DEEP copy here (make us have a distinc array, but with the same
+			// values as other_al)
+			// 1. Free up our array. Done further down
+			// 2. Make a new array (at least big enough to hold other_al.size())
+			unsigned char* new_array = nullptr;
+			new_array = new unsigned char[other_al.mSize * sizeof(T)];
+
+			// Copy data from the existing array
+			memcpy(new_array, mData, mSize * sizeof(T));
+
+			// Free the old array
+			delete[] mData;
+			// 4. Make sure size and capacity attribute are correct.
+			mData = new_array;
+			mCapacity = other_al.mCapacity;
+			mSize = other_al.mSize;
+			// 5. Return a reference to ME (to support chain assignments like a = b = c)
+			return *this;      // De-reference the this pointer to get a reference
+		}
+
+		ArrayList(const ArrayList& other_al)
+		{
+			// Just like an =operator, but no need to do step1.  Initialize your attributes instead.
+			// Then do steps 2 - 4 from the =operator.
+			
+			unsigned char* new_array = nullptr;
+			new_array = new unsigned char[other_al.mSize * sizeof(T)];
+
+			// Copy data from the existing array
+			memcpy(new_array, mData, mSize * sizeof(T));
+
+			// 4. Make sure size and capacity attribute are correct.
+			mData = new_array;
+			mCapacity = other_al.mCapacity;
+			mSize = other_al.mSize;
+			// 5. Return a reference to ME (to support chain assignments like a = b = c)
+			return *this;      // De-reference the this pointer to get a reference
+		}
+
 		/// <summary>
 		///  Inserts a new element at the end of the array
 		/// </summary>
@@ -92,6 +275,11 @@ namespace ssuds
 		{
 			if (index >= mSize)
 				throw std::out_of_range("Invalid index (" + std::to_string(index) + ")");
+			return (T&)(mData[index * sizeof(T)]);
+		}
+
+		ArrayList operator [](const unsigned int index)
+		{
 			return (T&)(mData[index * sizeof(T)]);
 		}
 
@@ -140,7 +328,7 @@ namespace ssuds
 			return -1;
 		}
 
-	
+
 
 		/// <summary>
 		/// Inserts a new data item at a given index
@@ -174,6 +362,18 @@ namespace ssuds
 		/// </summary>
 		/// <param name="os">an ostream object (ofstream, stringstream, cout, etc.) </param>
 		void output(std::ostream& os) const
+		{
+			os << "[";
+			for (unsigned int i = 0; i < size(); i++)
+			{
+				os << at(i);
+				if (i < size() - 1)
+					os << ", ";
+			}
+			os << "]";
+		}
+
+		friend ArrayList operator <<(std::ostream& os) const
 		{
 			os << "[";
 			for (unsigned int i = 0; i < size(); i++)
@@ -219,7 +419,7 @@ namespace ssuds
 		/// <param name="val">the value to remove</param>
 		/// <param name="resize_if_necessary">if true, the array will be resized if it is now below half capacity</param>
 		/// <returns>the number of occurrences of that data item that were removed</returns>
-		int remove_all(const T val, bool resize_if_necessary=true)
+		int remove_all(const T val, bool resize_if_necessary = true)
 		{
 			int cur_index = 0;
 			unsigned int num_removed = 0;
@@ -278,8 +478,34 @@ namespace ssuds
 			return mSize;
 		}
 
+		ArrayListIterator begin()
+		{
+			// In Python, all methods have self first.  This is a reference to the instance
+			// of the class that called it.  In C++, there is "this", a POINTER to the instance
+			// that called it.
+			ArrayListIterator return_value(this, 0);
+			return return_value;
+		}
 
-		
+		ArrayListIterator end()
+		{
+			// Your job is to make a special "null" value for an Iterator here.  
+			ArrayListIterator return_value(NULL,mSize);
+			// Set up that instance and return
+			return return_value;
+		}
+
+		ArrayListIterator rbegin()
+		{
+			ArrayListIterator return_value(this, mSize);
+			return return_value;
+		}
+
+		ArrayListIterator rend()
+		{
+			ArrayListIterator return_value(NULL, mSize);
+			return return_value;
+		}
 
 
 	protected:
@@ -337,7 +563,7 @@ namespace ssuds
 
 				// Copy over data from the old array (if any)
 				memcpy(new_array, mData, mSize * sizeof(T));
-				
+
 				// Destroy the old array
 				delete[] mData;
 
@@ -347,6 +573,6 @@ namespace ssuds
 				// Note that our capacity is now double what it used to be
 				mCapacity /= 2;
 			}
-		}
+		}		
 	};
 }
