@@ -64,7 +64,7 @@ namespace ssuds
 				// Finish me!   We should return false if we're NOT like rhs
 				if (this != my_array_list)
 				{
-					return 0;
+					return false;
 				}
 			}
 
@@ -181,6 +181,8 @@ namespace ssuds
 				append(cur_val);
 			}
 		}
+
+
 
 
 
@@ -373,7 +375,7 @@ namespace ssuds
 			os << "]";
 		}
 
-		friend ArrayList operator <<(std::ostream& os) const
+		friend ArrayList operator <<(std::ostream& os, ArrayList* arrayl ) const
 		{
 			os << "[";
 			for (unsigned int i = 0; i < size(); i++)
