@@ -375,16 +375,10 @@ namespace ssuds
 			os << "]";
 		}
 
-		friend ArrayList operator <<(std::ostream& os, ArrayList* arrayl ) const
+		friend std::ostream& operator <<(std::ostream& os, ArrayList& arrayl ) const
 		{
-			os << "[";
-			for (unsigned int i = 0; i < size(); i++)
-			{
-				os << at(i);
-				if (i < size() - 1)
-					os << ", ";
-			}
-			os << "]";
+			output(os);
+			return os;
 		}
 
 		/// <summary>

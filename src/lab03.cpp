@@ -19,8 +19,10 @@ int main()
 
 
 	for (int i = 0; i < slist.size(); i++)
+	{
 		std::cout << slist[i] << "\n";
-	std::cout << slist << "\n";					// [abe, bob, carl, diane, erin, frank]
+		std::cout << slist << "\n";					// [abe, bob, carl, diane, erin, frank]
+	}
 
 	std::cout << "iterator\n";
 	ssuds::ArrayList<std::string>::ArrayListIterator slist_iterator;
