@@ -1,0 +1,225 @@
+\doxysection{ssuds\+\_\+drawing\+::Text\+Circle Class Reference}
+\hypertarget{classssuds__drawing_1_1_text_circle}{}\label{classssuds__drawing_1_1_text_circle}\index{ssuds\_drawing::TextCircle@{ssuds\_drawing::TextCircle}}
+
+
+A Simple Circle with text centered in it.  
+
+
+
+
+{\ttfamily \#include $<$text\+\_\+circle.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classssuds__drawing_1_1_text_circle_ab774910ef996ea83eda69de95fb1b53e}\label{classssuds__drawing_1_1_text_circle_ab774910ef996ea83eda69de95fb1b53e} 
+{\bfseries Text\+Circle} (const sf\+::\+Font \&f, unsigned int font\+\_\+size)
+\item 
+\mbox{\hyperlink{classssuds__drawing_1_1_text_circle_ad2f00b709885c5da367270ae66074b12}{Text\+Circle}} (float x, float y, const sf\+::\+Font \&font\+\_\+ref, std\+::string text, unsigned int font\+\_\+size)
+\begin{DoxyCompactList}\small\item\em The Constructor that DOES initialize everything. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classssuds__drawing_1_1_text_circle_aa789d412ff41c2c0dab03094671e5f8a}{draw}} (sf\+::\+Render\+Window \&target) const
+\begin{DoxyCompactList}\small\item\em Draws the object to the given render target. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classssuds__drawing_1_1_text_circle_af30b59ae2731165bb1257ce311847f6c}{set\+\_\+circle\+\_\+color}} (const sf\+::\+Color \&c)
+\begin{DoxyCompactList}\small\item\em Setter to set the circle color. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classssuds__drawing_1_1_text_circle_a228cbaff4ea3031cc53dd9169f622100}{set\+\_\+font\+\_\+color}} (const sf\+::\+Color \&c)
+\begin{DoxyCompactList}\small\item\em Sets the text color. \end{DoxyCompactList}\item 
+sf\+::\+Vector2f \mbox{\hyperlink{classssuds__drawing_1_1_text_circle_a7bfd1d1e5f3f53295dc32d998ab962be}{get\+\_\+position}} () const
+\begin{DoxyCompactList}\small\item\em Getter to get the current position of the center of the circle and text. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classssuds__drawing_1_1_text_circle_ad184e8ef29e8fb3fa15d39afb3ecda7e}{get\+\_\+string}} () const
+\begin{DoxyCompactList}\small\item\em Getter to get the string. \end{DoxyCompactList}\item 
+sf\+::\+Color \mbox{\hyperlink{classssuds__drawing_1_1_text_circle_a0fc29eee97e4e638d03f69d6ff4e170f}{get\+\_\+color}} () const
+\begin{DoxyCompactList}\small\item\em Gets the circle color. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classssuds__drawing_1_1_text_circle_a9ab6a2a04abace768350d2b9a88d0db0}{set\+\_\+position}} (const sf\+::\+Vector2f \&p)
+\begin{DoxyCompactList}\small\item\em Sets the current position of the center of the circle and text. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classssuds__drawing_1_1_text_circle_a22fa668f117936e01ef46dbcc3b14861}{set\+\_\+string}} (const std\+::string \&s)
+\begin{DoxyCompactList}\small\item\em Sets the string. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classssuds__drawing_1_1_text_circle_af0dcd1a0e7aef895d660cd7491fabbf5}{point\+\_\+inside}} (const sf\+::\+Vector2f v) const
+\begin{DoxyCompactList}\small\item\em Determines if the given point is within the boundaries of the circle. \end{DoxyCompactList}\item 
+\Hypertarget{classssuds__drawing_1_1_text_circle_a032e3dd0d01aefa13a1d84f28e7dc59f}\label{classssuds__drawing_1_1_text_circle_a032e3dd0d01aefa13a1d84f28e7dc59f} 
+bool {\bfseries circle\+\_\+overlaps} (const sf\+::\+Vector2f \&other\+\_\+center, float other\+\_\+radius)
+\item 
+\Hypertarget{classssuds__drawing_1_1_text_circle_ad96f55bfcda5f9237fe05cc8b761b124}\label{classssuds__drawing_1_1_text_circle_ad96f55bfcda5f9237fe05cc8b761b124} 
+float {\bfseries get\+\_\+degrees} ()
+\item 
+\Hypertarget{classssuds__drawing_1_1_text_circle_abf145d94b9cf59f1be1c89dd443500c6}\label{classssuds__drawing_1_1_text_circle_abf145d94b9cf59f1be1c89dd443500c6} 
+void {\bfseries set\+\_\+degrees} (float new\+\_\+degrees)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classssuds__drawing_1_1_text_circle_ae03601f0c645810875fd825f63ebfedf}\label{classssuds__drawing_1_1_text_circle_ae03601f0c645810875fd825f63ebfedf} 
+sf\+::\+Text {\bfseries m\+Text}
+\begin{DoxyCompactList}\small\item\em The SFML text object. \end{DoxyCompactList}\item 
+\Hypertarget{classssuds__drawing_1_1_text_circle_a6d7aa4045ca2b82f97914056cbfe58e2}\label{classssuds__drawing_1_1_text_circle_a6d7aa4045ca2b82f97914056cbfe58e2} 
+sf\+::\+Circle\+Shape {\bfseries m\+Circle}
+\begin{DoxyCompactList}\small\item\em The SFML circle object. \end{DoxyCompactList}\item 
+\Hypertarget{classssuds__drawing_1_1_text_circle_a30cb13b3a4a7ee0f5bc0a427b49b2b1d}\label{classssuds__drawing_1_1_text_circle_a30cb13b3a4a7ee0f5bc0a427b49b2b1d} 
+sf\+::\+Float\+Rect {\bfseries m\+Text\+Rect}
+\begin{DoxyCompactList}\small\item\em The bounding area for the text. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A Simple Circle with text centered in it. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classssuds__drawing_1_1_text_circle_ad2f00b709885c5da367270ae66074b12}\index{ssuds\_drawing::TextCircle@{ssuds\_drawing::TextCircle}!TextCircle@{TextCircle}}
+\index{TextCircle@{TextCircle}!ssuds\_drawing::TextCircle@{ssuds\_drawing::TextCircle}}
+\doxysubsubsection{\texorpdfstring{TextCircle()}{TextCircle()}}
+{\footnotesize\ttfamily \label{classssuds__drawing_1_1_text_circle_ad2f00b709885c5da367270ae66074b12} 
+ssuds\+\_\+drawing\+::\+Text\+Circle\+::\+Text\+Circle (\begin{DoxyParamCaption}\item[{float}]{x}{, }\item[{float}]{y}{, }\item[{const sf\+::\+Font \&}]{font\+\_\+ref}{, }\item[{std\+::string}]{text}{, }\item[{unsigned int}]{font\+\_\+size}{}\end{DoxyParamCaption})}
+
+
+
+The Constructor that DOES initialize everything. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & starting x-\/position of the center of the text/circle\\
+\hline
+{\em y} & starting y-\/position of the center of the text/circle\\
+\hline
+{\em font\+\_\+ref} & the font to use for the text\\
+\hline
+{\em text} & the text for the circle\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classssuds__drawing_1_1_text_circle_aa789d412ff41c2c0dab03094671e5f8a}\index{ssuds\_drawing::TextCircle@{ssuds\_drawing::TextCircle}!draw@{draw}}
+\index{draw@{draw}!ssuds\_drawing::TextCircle@{ssuds\_drawing::TextCircle}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily \label{classssuds__drawing_1_1_text_circle_aa789d412ff41c2c0dab03094671e5f8a} 
+virtual void ssuds\+\_\+drawing\+::\+Text\+Circle\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{target}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Draws the object to the given render target. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & target to draw to\\
+\hline
+\end{DoxyParams}
+\Hypertarget{classssuds__drawing_1_1_text_circle_a0fc29eee97e4e638d03f69d6ff4e170f}\index{ssuds\_drawing::TextCircle@{ssuds\_drawing::TextCircle}!get\_color@{get\_color}}
+\index{get\_color@{get\_color}!ssuds\_drawing::TextCircle@{ssuds\_drawing::TextCircle}}
+\doxysubsubsection{\texorpdfstring{get\_color()}{get\_color()}}
+{\footnotesize\ttfamily \label{classssuds__drawing_1_1_text_circle_a0fc29eee97e4e638d03f69d6ff4e170f} 
+sf\+::\+Color ssuds\+\_\+drawing\+::\+Text\+Circle\+::get\+\_\+color (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the circle color. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{classssuds__drawing_1_1_text_circle_a7bfd1d1e5f3f53295dc32d998ab962be}\index{ssuds\_drawing::TextCircle@{ssuds\_drawing::TextCircle}!get\_position@{get\_position}}
+\index{get\_position@{get\_position}!ssuds\_drawing::TextCircle@{ssuds\_drawing::TextCircle}}
+\doxysubsubsection{\texorpdfstring{get\_position()}{get\_position()}}
+{\footnotesize\ttfamily \label{classssuds__drawing_1_1_text_circle_a7bfd1d1e5f3f53295dc32d998ab962be} 
+sf\+::\+Vector2f ssuds\+\_\+drawing\+::\+Text\+Circle\+::get\+\_\+position (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Getter to get the current position of the center of the circle and text. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{classssuds__drawing_1_1_text_circle_ad184e8ef29e8fb3fa15d39afb3ecda7e}\index{ssuds\_drawing::TextCircle@{ssuds\_drawing::TextCircle}!get\_string@{get\_string}}
+\index{get\_string@{get\_string}!ssuds\_drawing::TextCircle@{ssuds\_drawing::TextCircle}}
+\doxysubsubsection{\texorpdfstring{get\_string()}{get\_string()}}
+{\footnotesize\ttfamily \label{classssuds__drawing_1_1_text_circle_ad184e8ef29e8fb3fa15d39afb3ecda7e} 
+std\+::string ssuds\+\_\+drawing\+::\+Text\+Circle\+::get\+\_\+string (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Getter to get the string. 
+
+\begin{DoxyReturn}{Returns}
+the string
+\end{DoxyReturn}
+\Hypertarget{classssuds__drawing_1_1_text_circle_af0dcd1a0e7aef895d660cd7491fabbf5}\index{ssuds\_drawing::TextCircle@{ssuds\_drawing::TextCircle}!point\_inside@{point\_inside}}
+\index{point\_inside@{point\_inside}!ssuds\_drawing::TextCircle@{ssuds\_drawing::TextCircle}}
+\doxysubsubsection{\texorpdfstring{point\_inside()}{point\_inside()}}
+{\footnotesize\ttfamily \label{classssuds__drawing_1_1_text_circle_af0dcd1a0e7aef895d660cd7491fabbf5} 
+bool ssuds\+\_\+drawing\+::\+Text\+Circle\+::point\+\_\+inside (\begin{DoxyParamCaption}\item[{const sf\+::\+Vector2f}]{v}{}\end{DoxyParamCaption}) const}
+
+
+
+Determines if the given point is within the boundaries of the circle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & the position of interest\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if it is within, false if not
+\end{DoxyReturn}
+\Hypertarget{classssuds__drawing_1_1_text_circle_af30b59ae2731165bb1257ce311847f6c}\index{ssuds\_drawing::TextCircle@{ssuds\_drawing::TextCircle}!set\_circle\_color@{set\_circle\_color}}
+\index{set\_circle\_color@{set\_circle\_color}!ssuds\_drawing::TextCircle@{ssuds\_drawing::TextCircle}}
+\doxysubsubsection{\texorpdfstring{set\_circle\_color()}{set\_circle\_color()}}
+{\footnotesize\ttfamily \label{classssuds__drawing_1_1_text_circle_af30b59ae2731165bb1257ce311847f6c} 
+void ssuds\+\_\+drawing\+::\+Text\+Circle\+::set\+\_\+circle\+\_\+color (\begin{DoxyParamCaption}\item[{const sf\+::\+Color \&}]{c}{}\end{DoxyParamCaption})}
+
+
+
+Setter to set the circle color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classssuds__drawing_1_1_text_circle_a228cbaff4ea3031cc53dd9169f622100}\index{ssuds\_drawing::TextCircle@{ssuds\_drawing::TextCircle}!set\_font\_color@{set\_font\_color}}
+\index{set\_font\_color@{set\_font\_color}!ssuds\_drawing::TextCircle@{ssuds\_drawing::TextCircle}}
+\doxysubsubsection{\texorpdfstring{set\_font\_color()}{set\_font\_color()}}
+{\footnotesize\ttfamily \label{classssuds__drawing_1_1_text_circle_a228cbaff4ea3031cc53dd9169f622100} 
+void ssuds\+\_\+drawing\+::\+Text\+Circle\+::set\+\_\+font\+\_\+color (\begin{DoxyParamCaption}\item[{const sf\+::\+Color \&}]{c}{}\end{DoxyParamCaption})}
+
+
+
+Sets the text color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & new text color\\
+\hline
+\end{DoxyParams}
+\Hypertarget{classssuds__drawing_1_1_text_circle_a9ab6a2a04abace768350d2b9a88d0db0}\index{ssuds\_drawing::TextCircle@{ssuds\_drawing::TextCircle}!set\_position@{set\_position}}
+\index{set\_position@{set\_position}!ssuds\_drawing::TextCircle@{ssuds\_drawing::TextCircle}}
+\doxysubsubsection{\texorpdfstring{set\_position()}{set\_position()}}
+{\footnotesize\ttfamily \label{classssuds__drawing_1_1_text_circle_a9ab6a2a04abace768350d2b9a88d0db0} 
+void ssuds\+\_\+drawing\+::\+Text\+Circle\+::set\+\_\+position (\begin{DoxyParamCaption}\item[{const sf\+::\+Vector2f \&}]{p}{}\end{DoxyParamCaption})}
+
+
+
+Sets the current position of the center of the circle and text. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classssuds__drawing_1_1_text_circle_a22fa668f117936e01ef46dbcc3b14861}\index{ssuds\_drawing::TextCircle@{ssuds\_drawing::TextCircle}!set\_string@{set\_string}}
+\index{set\_string@{set\_string}!ssuds\_drawing::TextCircle@{ssuds\_drawing::TextCircle}}
+\doxysubsubsection{\texorpdfstring{set\_string()}{set\_string()}}
+{\footnotesize\ttfamily \label{classssuds__drawing_1_1_text_circle_a22fa668f117936e01ef46dbcc3b14861} 
+void ssuds\+\_\+drawing\+::\+Text\+Circle\+::set\+\_\+string (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s}{}\end{DoxyParamCaption})}
+
+
+
+Sets the string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & new string value\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/ssuds\+\_\+drawing/text\+\_\+circle.\+h\end{DoxyCompactItemize}

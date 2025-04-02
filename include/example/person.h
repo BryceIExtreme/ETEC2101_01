@@ -128,5 +128,25 @@ namespace example
 		/// <param name="reset">Set to true if we want to reset the hours worked after calling this method</param>
 		/// <returns></returns>
 		float get_salary(bool reset = false);
+
+
+		Person& operator=(const Person& p)
+		{
+			mFirstName = p.mFirstName;
+			mLastName = p.mLastName;
+			mID = p.mID;
+			mHourlyRate = p.mHourlyRate;
+			mHoursWorked = p.mHoursWorked;
+			return (*this);
+		}
+
+		Person(const Person& p)
+		{
+			mFirstName = p.mFirstName;
+			mLastName = p.mLastName;
+			mID = p.mID;
+			mHourlyRate = p.mHourlyRate;
+			mHoursWorked = p.mHoursWorked;
+		}
 	};
 }

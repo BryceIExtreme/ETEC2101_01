@@ -30,7 +30,7 @@
 \DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_person_ab88de04d70f4615a3563ae51ea611af6}{\string~Person}}();}
 \DoxyCodeLine{00053\ }
 \DoxyCodeLine{00054\ }
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_person_a13cef9dd175bcc612ae4fca575f91bc5}{Person}}(std::string\ starting\_fname,\ std::string\ starting\_lname,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{float}\ starting\_rate);}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_person_a13cef9dd175bcc612ae4fca575f91bc5}{Person}}(\textcolor{keyword}{const}\ std::string\&\ starting\_fname,\ \textcolor{keyword}{const}\ std::string\&\ starting\_lname,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{float}\ starting\_rate);}
 \DoxyCodeLine{00059\ }
 \DoxyCodeLine{00060\ \ \ \ \ \textcolor{comment}{//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@}}
 \DoxyCodeLine{00061\ \ \ \ \ \textcolor{comment}{//@\ GETTERS\ /\ SETTERS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ @}}
@@ -68,7 +68,27 @@
 \DoxyCodeLine{00123\ }
 \DoxyCodeLine{00124\ }
 \DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classexample_1_1_person_a961cb230658aea48972003527410098e}{get\_salary}}(\textcolor{keywordtype}{bool}\ reset\ =\ \textcolor{keyword}{false});}
-\DoxyCodeLine{00131\ \ \ \ \ \};}
-\DoxyCodeLine{00132\ \}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_person_a13cef9dd175bcc612ae4fca575f91bc5}{Person}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classexample_1_1_person_a13cef9dd175bcc612ae4fca575f91bc5}{Person}}\&\ p)}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_person_a1ddb0f7b4af376a796a292774c800446}{mFirstName}}\ =\ p.\mbox{\hyperlink{classexample_1_1_person_a1ddb0f7b4af376a796a292774c800446}{mFirstName}};}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_person_ae59560fb0c802535e086be1c57be6511}{mLastName}}\ =\ p.\mbox{\hyperlink{classexample_1_1_person_ae59560fb0c802535e086be1c57be6511}{mLastName}};}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_person_ac34349cfda9e55dca641c305d395d699}{mID}}\ =\ p.\mbox{\hyperlink{classexample_1_1_person_ac34349cfda9e55dca641c305d395d699}{mID}};}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_person_a491e688adc589d8647e748e12302d258}{mHourlyRate}}\ =\ p.\mbox{\hyperlink{classexample_1_1_person_a491e688adc589d8647e748e12302d258}{mHourlyRate}};}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_person_a0ee332c7783fb539a8dc28eb1e1d4567}{mHoursWorked}}\ =\ p.\mbox{\hyperlink{classexample_1_1_person_a0ee332c7783fb539a8dc28eb1e1d4567}{mHoursWorked}};}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (*\textcolor{keyword}{this});}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_person_a13cef9dd175bcc612ae4fca575f91bc5}{Person}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classexample_1_1_person}{Person}}\&\ p)}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_person_a1ddb0f7b4af376a796a292774c800446}{mFirstName}}\ =\ p.\mbox{\hyperlink{classexample_1_1_person_a1ddb0f7b4af376a796a292774c800446}{mFirstName}};}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_person_ae59560fb0c802535e086be1c57be6511}{mLastName}}\ =\ p.\mbox{\hyperlink{classexample_1_1_person_ae59560fb0c802535e086be1c57be6511}{mLastName}};}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_person_ac34349cfda9e55dca641c305d395d699}{mID}}\ =\ p.\mbox{\hyperlink{classexample_1_1_person_ac34349cfda9e55dca641c305d395d699}{mID}};}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_person_a491e688adc589d8647e748e12302d258}{mHourlyRate}}\ =\ p.\mbox{\hyperlink{classexample_1_1_person_a491e688adc589d8647e748e12302d258}{mHourlyRate}};}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_person_a0ee332c7783fb539a8dc28eb1e1d4567}{mHoursWorked}}\ =\ p.\mbox{\hyperlink{classexample_1_1_person_a0ee332c7783fb539a8dc28eb1e1d4567}{mHoursWorked}};}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00151\ \ \ \ \ \};}
+\DoxyCodeLine{00152\ \}}
 
 \end{DoxyCode}

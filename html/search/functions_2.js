@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['find_0',['find',['../classssuds_1_1_array_list.html#a1fdeab20e00be2dc57d24cbc63f5df21',1,'ssuds::ArrayList']]]
+  ['capacity_0',['capacity',['../classssuds_1_1_array_list.html#a4e9f0d67b921ddde2da06bdef3012ca8',1,'ssuds::ArrayList']]],
+  ['clear_1',['clear',['../classssuds_1_1_array_list.html#a29f9aaf226d5c6fde758546102150271',1,'ssuds::ArrayList']]]
 ];

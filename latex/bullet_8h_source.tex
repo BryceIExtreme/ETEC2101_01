@@ -1,0 +1,28 @@
+\doxysection{bullet.\+h}
+\hypertarget{bullet_8h_source}{}\label{bullet_8h_source}\index{include/example/bullet.h@{include/example/bullet.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#pragma\ warning(disable:4275)}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }example}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{class\ }Bullet}
+\DoxyCodeLine{00009\ \ \ \ \ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ mRadius;}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ sf::CircleShape\ mCircle;}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ sf::Vector2f\ mVelocity;}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ Bullet();}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ Bullet(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ vx,\ \textcolor{keywordtype}{float}\ vy,\ \textcolor{keywordtype}{float}\ radius,\ \textcolor{keyword}{const}\ sf::Color\&\ c);}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ update(\textcolor{keywordtype}{float}\ dt,\ sf::FloatRect\ win\_bounds);}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ draw(sf::RenderWindow\&\ rt);}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ sf::Vector2f\ get\_position()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ get\_radius()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00021\ \ \ \ \ \};}
+\DoxyCodeLine{00022\ \}}
+
+\end{DoxyCode}

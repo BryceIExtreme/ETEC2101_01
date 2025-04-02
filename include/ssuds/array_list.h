@@ -1,3 +1,4 @@
+
 #pragma once
 #include <string>
 #include <stdexcept>
@@ -14,17 +15,17 @@ namespace ssuds
 		// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 		// @ ENUM CLASSES                           @
 		// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-		enum class ArrayListIteratorType
-		{
+		enum class ArrayListIteratorType 
+		{ 
 			/// <summary>
 			/// This ArrayList iterator visits items from beginning to end
 			/// </summary>
-			forward,
+			forward, 
 
 			/// <summary>
 			/// This ArrayList iterator visits items from end to beginning
 			/// </summary>
-			backwards
+			backwards 
 		};
 
 		// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -214,9 +215,9 @@ namespace ssuds
 			friend class ArrayList;
 		};
 
-		// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-		// @ ATTRIBUTES                              @
-		// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	// @ ATTRIBUTES                              @
+	// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 	protected:
 		/// The default (and minimum) capacity of an ArrayList
 		static const int msMinCapacity = 5;
@@ -231,9 +232,9 @@ namespace ssuds
 		T* mData;
 
 
-		// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-		// @ OPERATOR OVERLOADS                      @
-		// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	// @ OPERATOR OVERLOADS                      @
+	// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 	public:
 
 		/// <summary>
@@ -295,9 +296,9 @@ namespace ssuds
 
 
 
-		// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-		// @ CONSTRUCTORS / DESTRUCTORS              @
-		// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	// @ CONSTRUCTORS / DESTRUCTORS              @
+	// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 	public:
 		/// <summary>
 		/// The Default constructor
@@ -349,7 +350,7 @@ namespace ssuds
 
 
 		/// Destructor
-		~ArrayList()
+		~ArrayList() 
 		{
 			// Note that I used to worry about mData being null, but the delete operator
 			// already has an internal check to avoid freeing a null pointer, so adding our own
@@ -359,9 +360,9 @@ namespace ssuds
 		}
 
 
-		// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-		// @ OTHER METHODS (alphabetical)            @
-		// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	// @ OTHER METHODS (alphabetical)            @
+	// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 	public:
 		/// <summary>
 		///  Inserts a new element at the end of the array
@@ -498,7 +499,7 @@ namespace ssuds
 
 
 
-
+	
 
 		/// <summary>
 		/// Inserts a new data item at a given index
@@ -622,9 +623,9 @@ namespace ssuds
 		/// nothing after)</returns>
 		ArrayListIterator remove(const ArrayListIterator& it)
 		{
-			if (it.mArrayList != this || it.mPosition < 0 || it.mPosition >(int)mSize)
+			if (it.mArrayList != this || it.mPosition < 0 || it.mPosition > (int)mSize)
 				throw std::out_of_range("Invalid iterator state");
-
+			
 			remove(it.mPosition);
 			if (it.mType == ArrayListIteratorType::forward)
 				return it;
@@ -641,7 +642,7 @@ namespace ssuds
 		/// <param name="val">the value to remove</param>
 		/// <param name="resize_if_necessary">if true, the array will be resized if it is now below half capacity</param>
 		/// <returns>the number of occurrences of that data item that were removed</returns>
-		int remove_all(const T val, bool resize_if_necessary = true)
+		int remove_all(const T val, bool resize_if_necessary=true)
 		{
 			int cur_index = 0;
 			unsigned int num_removed = 0;

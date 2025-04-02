@@ -1,5 +1,5 @@
-libdir=C:\Users\bryce\Desktop\temp\googletest-sdk/lib
-includedir=C:\Users\bryce\Desktop\temp\googletest-sdk/include
+libdir=D:/2025Sp/etec2101/googletest-sdk/lib
+includedir=D:/2025Sp/etec2101/googletest-sdk/include
 
 Name: gtest_main
 Description: GoogleTest (with main() function)

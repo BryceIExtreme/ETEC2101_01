@@ -18,8 +18,8 @@ This is a simple class we\textquotesingle{}ll use to explore basic C++ OOP (Obje
 \Hypertarget{classexample_1_1_person_ab88de04d70f4615a3563ae51ea611af6}\label{classexample_1_1_person_ab88de04d70f4615a3563ae51ea611af6} 
 {\bfseries \texorpdfstring{$\sim$}{\string~}\+Person} ()
 \begin{DoxyCompactList}\small\item\em This method isn\textquotesingle{}t really necessary to define in this class since we have no cleanup to do. \end{DoxyCompactList}\item 
-\Hypertarget{classexample_1_1_person_a85cb13dd10859c1df85d72a4621c318c}\label{classexample_1_1_person_a85cb13dd10859c1df85d72a4621c318c} 
-{\bfseries Person} (std\+::string starting\+\_\+fname, std\+::string starting\+\_\+lname, unsigned int id, float starting\+\_\+rate)
+\Hypertarget{classexample_1_1_person_a65581079655d7a538d88fe513564c952}\label{classexample_1_1_person_a65581079655d7a538d88fe513564c952} 
+{\bfseries Person} (const std\+::string \&starting\+\_\+fname, const std\+::string \&starting\+\_\+lname, unsigned int id, float starting\+\_\+rate)
 \begin{DoxyCompactList}\small\item\em This is a constructor that takes initial values for most of the attributes. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classexample_1_1_person_acc7c6c1c1a81867676b7a9980e7a3dfa}{get\+\_\+first\+\_\+name}} ()
 \begin{DoxyCompactList}\small\item\em Gets the first name of this \doxylink{classexample_1_1_person}{Person} (an example of a GETTER) \end{DoxyCompactList}\item 
@@ -37,7 +37,13 @@ void {\bfseries set\+\_\+hours\+\_\+worked} (int new\+\_\+hours)
 std\+::string \mbox{\hyperlink{classexample_1_1_person_a70ad796cf15d56facb9a1d9786b0fa22}{get\+\_\+name}} (bool reversed=true)
 \begin{DoxyCompactList}\small\item\em Compute the full-\/name of the person. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{classexample_1_1_person_a961cb230658aea48972003527410098e}{get\+\_\+salary}} (bool reset=false)
-\begin{DoxyCompactList}\small\item\em Computes the salary of this. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Computes the salary of this. \end{DoxyCompactList}\item 
+\Hypertarget{classexample_1_1_person_ab5a6b0d67f2975c9b99dd052ba828c15}\label{classexample_1_1_person_ab5a6b0d67f2975c9b99dd052ba828c15} 
+\mbox{\hyperlink{classexample_1_1_person}{Person}} \& {\bfseries operator=} (const \mbox{\hyperlink{classexample_1_1_person}{Person}} \&p)
+\item 
+\Hypertarget{classexample_1_1_person_a46abc73941674ff3302d5da05c64ad33}\label{classexample_1_1_person_a46abc73941674ff3302d5da05c64ad33} 
+{\bfseries Person} (const \mbox{\hyperlink{classexample_1_1_person}{Person}} \&p)
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 

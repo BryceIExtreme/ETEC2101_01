@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['clear_0',['clear',['../classssuds_1_1_array_list.html#a29f9aaf226d5c6fde758546102150271',1,'ssuds::ArrayList']]]
+  ['begin_0',['begin',['../classssuds_1_1_array_list.html#a1b21ab65dae2e027da6d40e1214ebb6c',1,'ssuds::ArrayList']]]
 ];
