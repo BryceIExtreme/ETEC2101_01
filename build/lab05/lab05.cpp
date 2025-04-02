@@ -11,7 +11,7 @@ int main(int argc, char** argv)
 {
     std::ofstream fp("..\\..\\media\\results.csv");
     fp << "n, create-time(ns), shuffle-time(ns), copy-time(ns), save-time(ns), quicksort(ms), bubblesort(ms), binary-search(ms), linear-search(ms)\n";
-    for (int sample_size = 1000; sample_size <= 21000; sample_size += 5000)
+    for (int sample_size = 1000; sample_size <= 30000; sample_size += 5000)
     {
         
      
@@ -21,7 +21,7 @@ int main(int argc, char** argv)
         auto start1 = high_resolution_clock::now();
         ssuds::ArrayList<float> flist;
         std::random_device device;
-        std::uniform_real_distribution<float> distribution(-5.0f, 25.0f);
+        std::uniform_real_distribution<float> distribution(1.0f, 1000.0f);
         std::mt19937 generator(device());
         for (int i = 0; i <= sample_size; i++)
         {
