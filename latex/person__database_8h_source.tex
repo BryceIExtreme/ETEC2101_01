@@ -1,0 +1,47 @@
+\doxysection{person\+\_\+database.\+h}
+\hypertarget{person__database_8h_source}{}\label{person__database_8h_source}\index{include/example/person\_database.h@{include/example/person\_database.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ array\_list.h}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <person.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifdef\ PERSON\_DATABASE\_USE\_NEW\_IMPLEMENTATION}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <array\_list.h>}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ only\ need\ this\ if\ using\ new\ impl.}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }example}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classexample_1_1_person_database_a5845e87cbf0ef0dc90192020a9dfd8b9}{PersonDatabase}}}
+\DoxyCodeLine{00017\ \ \ \ \ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classexample_1_1_person_database_adb71d6cc7a2946203261a5cc72f11618}{mFilename}};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#if\ !PERSON\_DATABASE\_USE\_ORIGINAL\_IMPLEMENTATION}}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_person}{Person}}*\ \mbox{\hyperlink{classexample_1_1_person_database_a098b0d09ebea53a45dc32ff1443ce5a9}{mArray}};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classexample_1_1_person_database_a204a18327955cce58e9426c5002b7d34}{mArraySize}};}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classssuds_1_1_array_list}{ssuds::ArrayList<example::Person>}}\ mArrayList;}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_person_database_a5845e87cbf0ef0dc90192020a9dfd8b9}{PersonDatabase}}(std::string\ fname);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_person_database_a84558db880f925669f94925eb06ea1e2}{\string~PersonDatabase}}();}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classexample_1_1_person_database_ab257ce8a2114416c72a6d87d363ab477}{add\_person}}(\mbox{\hyperlink{classexample_1_1_person}{Person}}\ p);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classexample_1_1_person_database_a2aac519399c6cea2a5be3995b6385516}{get\_num\_people}}();}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classexample_1_1_person_database_a831835c506fa66d02deb9e16db7145de}{remove\_person}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classexample_1_1_person_database_ad4c45ca3c7c3f83e94f43c0df0cbb55a}{to\_string}}();}
+\DoxyCodeLine{00082\ \ \ \ \ \};}
+\DoxyCodeLine{00083\ \}}
+
+\end{DoxyCode}

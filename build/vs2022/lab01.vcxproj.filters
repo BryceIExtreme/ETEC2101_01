@@ -1,10 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="..\..\src\lab01_main.cpp" />
-    <ClCompile Include="..\..\src\example\person.cpp" />
+    <ClCompile Include="..\..\src\lab01_main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\example\person.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\example\person_database.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\example\person.h" />
+    <ClInclude Include="..\..\include\example\person.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\example\person_database.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{2edba49e-ee99-4d85-819b-090e4fd54c0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{51a00cfb-117d-4f4e-9348-e9389ab2c008}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{8eb42abe-7236-4326-95e1-d510d28b3161}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

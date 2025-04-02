@@ -1,0 +1,488 @@
+\doxysection{ssuds\+::Array\+List\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classssuds_1_1_array_list}{}\label{classssuds_1_1_array_list}\index{ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}}
+
+
+An \doxylink{classssuds_1_1_array_list}{Array\+List} is an array-\/based data structure.  
+
+
+
+
+{\ttfamily \#include $<$array\+\_\+list.\+h$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classssuds_1_1_array_list_1_1_array_list_iterator}{Array\+List\+Iterator}}
+\begin{DoxyCompactList}\small\item\em The job of \doxylink{classssuds_1_1_array_list_1_1_array_list_iterator}{Array\+List\+Iterator} is to traverse the data in an \doxylink{classssuds_1_1_array_list}{Array\+List}. \doxylink{classssuds_1_1_array_list}{Array\+List} wouldn\textquotesingle{}t necessarily {\itshape need} an iterator since the internal array supports random access, but this is a chance to get used to the iterator pattern, which is much more useful for the user in other classes. We might eventually use inheritance to derive this class from some common iterator class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+T \& \mbox{\hyperlink{classssuds_1_1_array_list_a8f2e0b06a3bf7bdc5fbe20c95cec1c6b}{operator\mbox{[}$\,$\mbox{]}}} (int index) const
+\begin{DoxyCompactList}\small\item\em Gets the data item at the given index. This method (unlike at) does NOT do bounds-\/checking (and so is very slightly faster) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classssuds_1_1_array_list}{Array\+List}}$<$ T $>$ \& \mbox{\hyperlink{classssuds_1_1_array_list_a6334ec5abee5dbc48aafcdf46a390670}{operator=}} (const \mbox{\hyperlink{classssuds_1_1_array_list}{Array\+List}}$<$ T $>$ \&other)
+\begin{DoxyCompactList}\small\item\em Allows the creation of a deep copy when the user assigns an existing \doxylink{classssuds_1_1_array_list}{Array\+List} to another. This method also handles the case where the user self-\/copies (a = a). \end{DoxyCompactList}\item 
+\Hypertarget{classssuds_1_1_array_list_a17073605b1b8e31ca126e61db633c57d}\label{classssuds_1_1_array_list_a17073605b1b8e31ca126e61db633c57d} 
+{\bfseries Array\+List} ()
+\begin{DoxyCompactList}\small\item\em The Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classssuds_1_1_array_list_acc8c635fece5189238f20e4df1e9e899}{Array\+List}} (const \mbox{\hyperlink{classssuds_1_1_array_list}{Array\+List}} \&other)
+\begin{DoxyCompactList}\small\item\em The copy-\/constructor. Used in these two cases \doxylink{classssuds_1_1_array_list}{Array\+List} me(other\+\_\+array\+\_\+list); \doxylink{classssuds_1_1_array_list}{Array\+List} me = other\+\_\+array\+\_\+list; Note\+: this does NOT use the =operator ... me = other\+\_\+array\+\_\+list; This WOULD use the =operator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classssuds_1_1_array_list_ad351338073d3009c376cc41ebd1a3fa1}{Array\+List}} (\mbox{\hyperlink{classssuds_1_1_array_list}{Array\+List}} \&\&other)
+\begin{DoxyCompactList}\small\item\em The move-\/constructor. This makes a shallow copy of other. A better way to explain might be to say that this constructor "{}steals"{} the data from the other array. The compiler calls this method when \doxylink{classssuds_1_1_array_list}{Array\+List} other is about to go away, and it is being assigned to us. Making a full copy would be much more expensive than this. \end{DoxyCompactList}\item 
+\Hypertarget{classssuds_1_1_array_list_a2054692182bb324c826024ccc10a63b7}\label{classssuds_1_1_array_list_a2054692182bb324c826024ccc10a63b7} 
+{\bfseries Array\+List} (std\+::initializer\+\_\+list$<$ T $>$ ilist)
+\begin{DoxyCompactList}\small\item\em Initializer-\/list constructor. \end{DoxyCompactList}\item 
+\Hypertarget{classssuds_1_1_array_list_a334e1f8861f34a0da7230aeec7571e3c}\label{classssuds_1_1_array_list_a334e1f8861f34a0da7230aeec7571e3c} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Array\+List} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classssuds_1_1_array_list_a3a7c9bd58748ea361ca69b45c1c66681}{append}} (const T \&val)
+\begin{DoxyCompactList}\small\item\em Inserts a new element at the end of the array. \end{DoxyCompactList}\item 
+T \& \mbox{\hyperlink{classssuds_1_1_array_list_a78b660cd011f7d236e41e8602412072a}{at}} (const unsigned int index) const
+\begin{DoxyCompactList}\small\item\em Returns a reference to the item at the given index. Since it is a reference, this type of operation is allowed\+: my\+\_\+float\+\_\+array.\+at(5) = 17.\+3f; my\+\_\+int\+\_\+array.\+at(3)++; This method will raise a std\+::out\+\_\+of\+\_\+range exception if an invalid index is given. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classssuds_1_1_array_list_1_1_array_list_iterator}{Array\+List\+Iterator}} \mbox{\hyperlink{classssuds_1_1_array_list_a1b21ab65dae2e027da6d40e1214ebb6c}{begin}} () const
+\begin{DoxyCompactList}\small\item\em Returns an forward \doxylink{classssuds_1_1_array_list_1_1_array_list_iterator}{Array\+List\+Iterator} "{}pointing"{} at the first element (if it exists). If the \doxylink{classssuds_1_1_array_list_1_1_array_list_iterator}{Array\+List\+Iterator} is empty, this iterator will be equal to end. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{classssuds_1_1_array_list_a4e9f0d67b921ddde2da06bdef3012ca8}{capacity}} () const
+\begin{DoxyCompactList}\small\item\em Returns the current capacity of the \doxylink{classssuds_1_1_array_list}{Array\+List} (this is always greater than or equal to the size) \end{DoxyCompactList}\item 
+\Hypertarget{classssuds_1_1_array_list_a29f9aaf226d5c6fde758546102150271}\label{classssuds_1_1_array_list_a29f9aaf226d5c6fde758546102150271} 
+void {\bfseries clear} ()
+\begin{DoxyCompactList}\small\item\em Clears the array back to its original state. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classssuds_1_1_array_list_1_1_array_list_iterator}{Array\+List\+Iterator}} \mbox{\hyperlink{classssuds_1_1_array_list_ae89f6f81f6ab34575525ed973c81146d}{end}} () const
+\begin{DoxyCompactList}\small\item\em The name can be a bit mis-\/leading, but this iterator does NOT return an iterator referring to the LAST element. Instead, it returns a special value that indicates this is an invalid iterator (or we\textquotesingle{}re done forward-\/traversing) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classssuds_1_1_array_list_a82856a033e2fd787203e1980c912b894}{find}} (const T \&val, const unsigned int start\+\_\+index=0) const
+\begin{DoxyCompactList}\small\item\em Finds the index of the first occurrence of the given value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classssuds_1_1_array_list_1_1_array_list_iterator}{Array\+List\+Iterator}} \mbox{\hyperlink{classssuds_1_1_array_list_aa6a729905bcedb0b493d51d8ad6af594}{find}} (const T \&val, const \mbox{\hyperlink{classssuds_1_1_array_list_1_1_array_list_iterator}{Array\+List\+Iterator}} \&start) const
+\begin{DoxyCompactList}\small\item\em Like the find method above, but using iterators (closer to std\+::vector) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classssuds_1_1_array_list_abd03aedf6acb7f37086d83a4b5ed9dd2}{insert}} (const T \&val, unsigned int index)
+\begin{DoxyCompactList}\small\item\em Inserts a new data item at a given index. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classssuds_1_1_array_list_a8fb940eeacbdef50b05dac3f2e681ab8}{output}} (std\+::ostream \&os) const
+\begin{DoxyCompactList}\small\item\em This basically does the same thing as the \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} operator (the syntax is a bit different). I chose to keep it to preserve backwards compatiability with \texorpdfstring{$<$}{<}Lab3 code. \end{DoxyCompactList}\item 
+\Hypertarget{classssuds_1_1_array_list_a3ff369eaa7e49b33bcfa80aa88906fcd}\label{classssuds_1_1_array_list_a3ff369eaa7e49b33bcfa80aa88906fcd} 
+void {\bfseries prepend} (const T \&val)
+\item 
+\mbox{\hyperlink{classssuds_1_1_array_list_1_1_array_list_iterator}{Array\+List\+Iterator}} \mbox{\hyperlink{classssuds_1_1_array_list_abfcec39c654ee0a0d25d033809b1af44}{rbegin}} () const
+\begin{DoxyCompactList}\small\item\em Returns a backwards \doxylink{classssuds_1_1_array_list_1_1_array_list_iterator}{Array\+List\+Iterator} "{}pointing"{} at the last element (if it exists). If the \doxylink{classssuds_1_1_array_list_1_1_array_list_iterator}{Array\+List\+Iterator} is empty, this iterator will be equal to rend. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classssuds_1_1_array_list_1_1_array_list_iterator}{Array\+List\+Iterator}} \mbox{\hyperlink{classssuds_1_1_array_list_a8d4c6c8324263cb02cad484f59bf0039}{rend}} () const
+\begin{DoxyCompactList}\small\item\em Returns a special value indicating we\textquotesingle{}re done iterating backwards or that this iterator is invalid. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{classssuds_1_1_array_list_afb8ccd2d3ede88c6041032f2acb7bc17}{remove}} (unsigned int index, bool resize\+\_\+if\+\_\+necessary=true)
+\begin{DoxyCompactList}\small\item\em Removes a data item at the given index. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classssuds_1_1_array_list_1_1_array_list_iterator}{Array\+List\+Iterator}} \mbox{\hyperlink{classssuds_1_1_array_list_a4aaf7be94a8d5c7c7a54cc9a4ee58763}{remove}} (const \mbox{\hyperlink{classssuds_1_1_array_list_1_1_array_list_iterator}{Array\+List\+Iterator}} \&it)
+\begin{DoxyCompactList}\small\item\em Removes the value at the given position. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classssuds_1_1_array_list_a47e4c18bb5fbcacabf07fb7cad038f9b}{remove\+\_\+all}} (const T val, bool resize\+\_\+if\+\_\+necessary=true)
+\begin{DoxyCompactList}\small\item\em Removes all occurrences of a given value. Uses find and remove internally to do the removal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classssuds_1_1_array_list_a891330426da480ed1bbbfb29fb018b3a}{reserve}} (unsigned int desired\+\_\+capacity)
+\begin{DoxyCompactList}\small\item\em Ensures the internal array has at least this capacity. This is useful if the user knows how many items they will add and don\textquotesingle{}t want to take the performance penalty of the grow operation happening in-\/between. If the capacity is already higher or equal to the given value, there will be no effect. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{classssuds_1_1_array_list_adbcd61184deb92c36610e47b91a7b6d5}{size}} () const
+\begin{DoxyCompactList}\small\item\em Returns the size of the internal array (i.\+e.) how many things are being stored in the \doxylink{classssuds_1_1_array_list}{Array\+List}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classssuds_1_1_array_list_a07a02cc34fc7c9162e64e3c7a7d1a963}\label{classssuds_1_1_array_list_a07a02cc34fc7c9162e64e3c7a7d1a963} 
+void {\bfseries grow} ()
+\begin{DoxyCompactList}\small\item\em An internal method to resize the array if we are currently at capacity (if we are not, nothing is done) \end{DoxyCompactList}\item 
+\Hypertarget{classssuds_1_1_array_list_ae18613568842335b1d115958d2f34bab}\label{classssuds_1_1_array_list_ae18613568842335b1d115958d2f34bab} 
+void {\bfseries shrink} ()
+\begin{DoxyCompactList}\small\item\em An internal method to see if the array can be shrunk (capacity reduced by half, down to ms\+Min\+Capacity) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classssuds_1_1_array_list_ac4487ae34800f88539054c3721568c10}\label{classssuds_1_1_array_list_ac4487ae34800f88539054c3721568c10} 
+unsigned int {\bfseries m\+Capacity}
+\begin{DoxyCompactList}\small\item\em The current number of "{}slots"{} AVAILABLE in m\+Data (i.\+e. the array size) \end{DoxyCompactList}\item 
+\Hypertarget{classssuds_1_1_array_list_a8f68ee08bdbaa2f26d017816e4e46e42}\label{classssuds_1_1_array_list_a8f68ee08bdbaa2f26d017816e4e46e42} 
+unsigned int {\bfseries m\+Size}
+\begin{DoxyCompactList}\small\item\em How many slots are we USING? This will always be less than or equal to m\+Capacity. \end{DoxyCompactList}\item 
+\Hypertarget{classssuds_1_1_array_list_ae43c344eccee75213eb02e96ea3e300e}\label{classssuds_1_1_array_list_ae43c344eccee75213eb02e96ea3e300e} 
+T \texorpdfstring{$\ast$}{*} {\bfseries m\+Data}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classssuds_1_1_array_list_a5b588e6e70c9a9b5cacbc7ce5b971490}\label{classssuds_1_1_array_list_a5b588e6e70c9a9b5cacbc7ce5b971490} 
+static const int {\bfseries ms\+Min\+Capacity} = 5
+\begin{DoxyCompactList}\small\item\em The default (and minimum) capacity of an \doxylink{classssuds_1_1_array_list}{Array\+List}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{classssuds_1_1_array_list_a9bb180c1f0d6bbe33037e1a8b0d6f5e4}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{classssuds_1_1_array_list}{Array\+List}} \&alist)
+\begin{DoxyCompactList}\small\item\em Overloads the stream operator for Array\+Lists. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class ssuds\+::\+Array\+List$<$ T $>$}
+An \doxylink{classssuds_1_1_array_list}{Array\+List} is an array-\/based data structure. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classssuds_1_1_array_list_acc8c635fece5189238f20e4df1e9e899}\index{ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}!ArrayList@{ArrayList}}
+\index{ArrayList@{ArrayList}!ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{ArrayList()}{ArrayList()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classssuds_1_1_array_list_acc8c635fece5189238f20e4df1e9e899} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{classssuds_1_1_array_list}{ssuds\+::\+Array\+List}}$<$ T $>$\+::\+Array\+List (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classssuds_1_1_array_list}{Array\+List}}$<$ T $>$ \&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The copy-\/constructor. Used in these two cases \doxylink{classssuds_1_1_array_list}{Array\+List} me(other\+\_\+array\+\_\+list); \doxylink{classssuds_1_1_array_list}{Array\+List} me = other\+\_\+array\+\_\+list; Note\+: this does NOT use the =operator ... me = other\+\_\+array\+\_\+list; This WOULD use the =operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classssuds_1_1_array_list_ad351338073d3009c376cc41ebd1a3fa1}\index{ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}!ArrayList@{ArrayList}}
+\index{ArrayList@{ArrayList}!ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{ArrayList()}{ArrayList()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classssuds_1_1_array_list_ad351338073d3009c376cc41ebd1a3fa1} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{classssuds_1_1_array_list}{ssuds\+::\+Array\+List}}$<$ T $>$\+::\+Array\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classssuds_1_1_array_list}{Array\+List}}$<$ T $>$ \&\&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The move-\/constructor. This makes a shallow copy of other. A better way to explain might be to say that this constructor "{}steals"{} the data from the other array. The compiler calls this method when \doxylink{classssuds_1_1_array_list}{Array\+List} other is about to go away, and it is being assigned to us. Making a full copy would be much more expensive than this. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classssuds_1_1_array_list_a3a7c9bd58748ea361ca69b45c1c66681}\index{ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}!append@{append}}
+\index{append@{append}!ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{append()}{append()}}
+{\footnotesize\ttfamily \label{classssuds_1_1_array_list_a3a7c9bd58748ea361ca69b45c1c66681} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{classssuds_1_1_array_list}{ssuds\+::\+Array\+List}}$<$ T $>$\+::append (\begin{DoxyParamCaption}\item[{const T \&}]{val}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inserts a new element at the end of the array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & the new value to add\\
+\hline
+\end{DoxyParams}
+\Hypertarget{classssuds_1_1_array_list_a78b660cd011f7d236e41e8602412072a}\index{ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}!at@{at}}
+\index{at@{at}!ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{at()}{at()}}
+{\footnotesize\ttfamily \label{classssuds_1_1_array_list_a78b660cd011f7d236e41e8602412072a} 
+template$<$class T$>$ \\
+T \& \mbox{\hyperlink{classssuds_1_1_array_list}{ssuds\+::\+Array\+List}}$<$ T $>$\+::at (\begin{DoxyParamCaption}\item[{const unsigned int}]{index}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns a reference to the item at the given index. Since it is a reference, this type of operation is allowed\+: my\+\_\+float\+\_\+array.\+at(5) = 17.\+3f; my\+\_\+int\+\_\+array.\+at(3)++; This method will raise a std\+::out\+\_\+of\+\_\+range exception if an invalid index is given. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{classssuds_1_1_array_list_a1b21ab65dae2e027da6d40e1214ebb6c}\index{ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}!begin@{begin}}
+\index{begin@{begin}!ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \label{classssuds_1_1_array_list_a1b21ab65dae2e027da6d40e1214ebb6c} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{classssuds_1_1_array_list_1_1_array_list_iterator}{Array\+List\+Iterator}} \mbox{\hyperlink{classssuds_1_1_array_list}{ssuds\+::\+Array\+List}}$<$ T $>$\+::begin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns an forward \doxylink{classssuds_1_1_array_list_1_1_array_list_iterator}{Array\+List\+Iterator} "{}pointing"{} at the first element (if it exists). If the \doxylink{classssuds_1_1_array_list_1_1_array_list_iterator}{Array\+List\+Iterator} is empty, this iterator will be equal to end. 
+
+\begin{DoxyReturn}{Returns}
+A forward iterator referring to the first value value
+\end{DoxyReturn}
+\Hypertarget{classssuds_1_1_array_list_a4e9f0d67b921ddde2da06bdef3012ca8}\index{ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}!capacity@{capacity}}
+\index{capacity@{capacity}!ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{capacity()}{capacity()}}
+{\footnotesize\ttfamily \label{classssuds_1_1_array_list_a4e9f0d67b921ddde2da06bdef3012ca8} 
+template$<$class T$>$ \\
+unsigned int \mbox{\hyperlink{classssuds_1_1_array_list}{ssuds\+::\+Array\+List}}$<$ T $>$\+::capacity (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the current capacity of the \doxylink{classssuds_1_1_array_list}{Array\+List} (this is always greater than or equal to the size) 
+
+\begin{DoxyReturn}{Returns}
+the capacity of the internal array in the \doxylink{classssuds_1_1_array_list}{Array\+List}
+\end{DoxyReturn}
+\Hypertarget{classssuds_1_1_array_list_ae89f6f81f6ab34575525ed973c81146d}\index{ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}!end@{end}}
+\index{end@{end}!ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily \label{classssuds_1_1_array_list_ae89f6f81f6ab34575525ed973c81146d} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{classssuds_1_1_array_list_1_1_array_list_iterator}{Array\+List\+Iterator}} \mbox{\hyperlink{classssuds_1_1_array_list}{ssuds\+::\+Array\+List}}$<$ T $>$\+::end (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The name can be a bit mis-\/leading, but this iterator does NOT return an iterator referring to the LAST element. Instead, it returns a special value that indicates this is an invalid iterator (or we\textquotesingle{}re done forward-\/traversing) 
+
+\begin{DoxyReturn}{Returns}
+An "{}end"{} type iterator value
+\end{DoxyReturn}
+\Hypertarget{classssuds_1_1_array_list_aa6a729905bcedb0b493d51d8ad6af594}\index{ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}!find@{find}}
+\index{find@{find}!ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{find()}{find()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classssuds_1_1_array_list_aa6a729905bcedb0b493d51d8ad6af594} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{classssuds_1_1_array_list_1_1_array_list_iterator}{Array\+List\+Iterator}} \mbox{\hyperlink{classssuds_1_1_array_list}{ssuds\+::\+Array\+List}}$<$ T $>$\+::find (\begin{DoxyParamCaption}\item[{const T \&}]{val}{, }\item[{const \mbox{\hyperlink{classssuds_1_1_array_list_1_1_array_list_iterator}{Array\+List\+Iterator}} \&}]{start}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Like the find method above, but using iterators (closer to std\+::vector) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & The value to search for\\
+\hline
+{\em start} & Either begin, rbegin, or some other iterator to initialize the search\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+And end iterator or rend/end iterator value if not found
+\end{DoxyReturn}
+\Hypertarget{classssuds_1_1_array_list_a82856a033e2fd787203e1980c912b894}\index{ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}!find@{find}}
+\index{find@{find}!ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{find()}{find()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classssuds_1_1_array_list_a82856a033e2fd787203e1980c912b894} 
+template$<$class T$>$ \\
+int \mbox{\hyperlink{classssuds_1_1_array_list}{ssuds\+::\+Array\+List}}$<$ T $>$\+::find (\begin{DoxyParamCaption}\item[{const T \&}]{val}{, }\item[{const unsigned int}]{start\+\_\+index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Finds the index of the first occurrence of the given value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & the value to search for\\
+\hline
+{\em start\+\_\+index} & the index to start searching at\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{classssuds_1_1_array_list_abd03aedf6acb7f37086d83a4b5ed9dd2}\index{ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}!insert@{insert}}
+\index{insert@{insert}!ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily \label{classssuds_1_1_array_list_abd03aedf6acb7f37086d83a4b5ed9dd2} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{classssuds_1_1_array_list}{ssuds\+::\+Array\+List}}$<$ T $>$\+::insert (\begin{DoxyParamCaption}\item[{const T \&}]{val}{, }\item[{unsigned int}]{index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inserts a new data item at a given index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & the new value to insert\\
+\hline
+{\em index} & the index at which to insert (must be \texorpdfstring{$>$}{>}= 0 and \texorpdfstring{$<$}{<}= size) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classssuds_1_1_array_list_a6334ec5abee5dbc48aafcdf46a390670}\index{ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{classssuds_1_1_array_list_a6334ec5abee5dbc48aafcdf46a390670} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{classssuds_1_1_array_list}{Array\+List}}$<$ T $>$ \& \mbox{\hyperlink{classssuds_1_1_array_list}{ssuds\+::\+Array\+List}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classssuds_1_1_array_list}{Array\+List}}$<$ T $>$ \&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Allows the creation of a deep copy when the user assigns an existing \doxylink{classssuds_1_1_array_list}{Array\+List} to another. This method also handles the case where the user self-\/copies (a = a). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other \doxylink{classssuds_1_1_array_list}{Array\+List} we are assigning to\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a reference to this \doxylink{classssuds_1_1_array_list}{Array\+List}
+\end{DoxyReturn}
+\Hypertarget{classssuds_1_1_array_list_a8f2e0b06a3bf7bdc5fbe20c95cec1c6b}\index{ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily \label{classssuds_1_1_array_list_a8f2e0b06a3bf7bdc5fbe20c95cec1c6b} 
+template$<$class T$>$ \\
+T \& \mbox{\hyperlink{classssuds_1_1_array_list}{ssuds\+::\+Array\+List}}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{index}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the data item at the given index. This method (unlike at) does NOT do bounds-\/checking (and so is very slightly faster) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & the index of the thing to return\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a reference to the value at the given index
+\end{DoxyReturn}
+\Hypertarget{classssuds_1_1_array_list_a8fb940eeacbdef50b05dac3f2e681ab8}\index{ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}!output@{output}}
+\index{output@{output}!ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{output()}{output()}}
+{\footnotesize\ttfamily \label{classssuds_1_1_array_list_a8fb940eeacbdef50b05dac3f2e681ab8} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{classssuds_1_1_array_list}{ssuds\+::\+Array\+List}}$<$ T $>$\+::output (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This basically does the same thing as the \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} operator (the syntax is a bit different). I chose to keep it to preserve backwards compatiability with \texorpdfstring{$<$}{<}Lab3 code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & The output stream (cout, fp, stringstring, etc.) to write to\\
+\hline
+\end{DoxyParams}
+\Hypertarget{classssuds_1_1_array_list_abfcec39c654ee0a0d25d033809b1af44}\index{ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}!rbegin@{rbegin}}
+\index{rbegin@{rbegin}!ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{rbegin()}{rbegin()}}
+{\footnotesize\ttfamily \label{classssuds_1_1_array_list_abfcec39c654ee0a0d25d033809b1af44} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{classssuds_1_1_array_list_1_1_array_list_iterator}{Array\+List\+Iterator}} \mbox{\hyperlink{classssuds_1_1_array_list}{ssuds\+::\+Array\+List}}$<$ T $>$\+::rbegin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns a backwards \doxylink{classssuds_1_1_array_list_1_1_array_list_iterator}{Array\+List\+Iterator} "{}pointing"{} at the last element (if it exists). If the \doxylink{classssuds_1_1_array_list_1_1_array_list_iterator}{Array\+List\+Iterator} is empty, this iterator will be equal to rend. 
+
+\begin{DoxyReturn}{Returns}
+A backwards iterator referring to the last valid value
+\end{DoxyReturn}
+\Hypertarget{classssuds_1_1_array_list_a4aaf7be94a8d5c7c7a54cc9a4ee58763}\index{ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}!remove@{remove}}
+\index{remove@{remove}!ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classssuds_1_1_array_list_a4aaf7be94a8d5c7c7a54cc9a4ee58763} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{classssuds_1_1_array_list_1_1_array_list_iterator}{Array\+List\+Iterator}} \mbox{\hyperlink{classssuds_1_1_array_list}{ssuds\+::\+Array\+List}}$<$ T $>$\+::remove (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classssuds_1_1_array_list_1_1_array_list_iterator}{Array\+List\+Iterator}} \&}]{it}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Removes the value at the given position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em it} & A valid iterator referring to the value that the user wants to remove\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An iterator now referring to the value {\itshape after} the value removed (or end/rend if there\textquotesingle{}s nothing after)
+\end{DoxyReturn}
+\Hypertarget{classssuds_1_1_array_list_afb8ccd2d3ede88c6041032f2acb7bc17}\index{ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}!remove@{remove}}
+\index{remove@{remove}!ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classssuds_1_1_array_list_afb8ccd2d3ede88c6041032f2acb7bc17} 
+template$<$class T$>$ \\
+T \mbox{\hyperlink{classssuds_1_1_array_list}{ssuds\+::\+Array\+List}}$<$ T $>$\+::remove (\begin{DoxyParamCaption}\item[{unsigned int}]{index}{, }\item[{bool}]{resize\+\_\+if\+\_\+necessary}{ = {\ttfamily true}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Removes a data item at the given index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & the index of the thing to remove (will return a std\+::out\+\_\+of\+\_\+bounds exception if invalid (\texorpdfstring{$<$}{<}0 or \texorpdfstring{$>$}{>}= size)\\
+\hline
+{\em resize\+\_\+if\+\_\+necessary} & if true, the array will be resized if it is now below half capacity\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the data item that was just removed
+\end{DoxyReturn}
+\Hypertarget{classssuds_1_1_array_list_a47e4c18bb5fbcacabf07fb7cad038f9b}\index{ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}!remove\_all@{remove\_all}}
+\index{remove\_all@{remove\_all}!ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{remove\_all()}{remove\_all()}}
+{\footnotesize\ttfamily \label{classssuds_1_1_array_list_a47e4c18bb5fbcacabf07fb7cad038f9b} 
+template$<$class T$>$ \\
+int \mbox{\hyperlink{classssuds_1_1_array_list}{ssuds\+::\+Array\+List}}$<$ T $>$\+::remove\+\_\+all (\begin{DoxyParamCaption}\item[{const T}]{val}{, }\item[{bool}]{resize\+\_\+if\+\_\+necessary}{ = {\ttfamily true}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Removes all occurrences of a given value. Uses find and remove internally to do the removal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & the value to remove\\
+\hline
+{\em resize\+\_\+if\+\_\+necessary} & if true, the array will be resized if it is now below half capacity\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of occurrences of that data item that were removed
+\end{DoxyReturn}
+\Hypertarget{classssuds_1_1_array_list_a8d4c6c8324263cb02cad484f59bf0039}\index{ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}!rend@{rend}}
+\index{rend@{rend}!ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{rend()}{rend()}}
+{\footnotesize\ttfamily \label{classssuds_1_1_array_list_a8d4c6c8324263cb02cad484f59bf0039} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{classssuds_1_1_array_list_1_1_array_list_iterator}{Array\+List\+Iterator}} \mbox{\hyperlink{classssuds_1_1_array_list}{ssuds\+::\+Array\+List}}$<$ T $>$\+::rend (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns a special value indicating we\textquotesingle{}re done iterating backwards or that this iterator is invalid. 
+
+\begin{DoxyReturn}{Returns}
+A special end value for backwards iteration
+\end{DoxyReturn}
+\Hypertarget{classssuds_1_1_array_list_a891330426da480ed1bbbfb29fb018b3a}\index{ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}!reserve@{reserve}}
+\index{reserve@{reserve}!ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{reserve()}{reserve()}}
+{\footnotesize\ttfamily \label{classssuds_1_1_array_list_a891330426da480ed1bbbfb29fb018b3a} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{classssuds_1_1_array_list}{ssuds\+::\+Array\+List}}$<$ T $>$\+::reserve (\begin{DoxyParamCaption}\item[{unsigned int}]{desired\+\_\+capacity}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Ensures the internal array has at least this capacity. This is useful if the user knows how many items they will add and don\textquotesingle{}t want to take the performance penalty of the grow operation happening in-\/between. If the capacity is already higher or equal to the given value, there will be no effect. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em desired\+\_\+capacity} & The capacity will be set to at least this value\\
+\hline
+\end{DoxyParams}
+\Hypertarget{classssuds_1_1_array_list_adbcd61184deb92c36610e47b91a7b6d5}\index{ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}!size@{size}}
+\index{size@{size}!ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily \label{classssuds_1_1_array_list_adbcd61184deb92c36610e47b91a7b6d5} 
+template$<$class T$>$ \\
+unsigned int \mbox{\hyperlink{classssuds_1_1_array_list}{ssuds\+::\+Array\+List}}$<$ T $>$\+::size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the size of the internal array (i.\+e.) how many things are being stored in the \doxylink{classssuds_1_1_array_list}{Array\+List}. 
+
+\begin{DoxyReturn}{Returns}
+the size of the \doxylink{classssuds_1_1_array_list}{Array\+List}
+\end{DoxyReturn}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classssuds_1_1_array_list_a9bb180c1f0d6bbe33037e1a8b0d6f5e4}\index{ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!ssuds::ArrayList$<$ T $>$@{ssuds::ArrayList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily \label{classssuds_1_1_array_list_a9bb180c1f0d6bbe33037e1a8b0d6f5e4} 
+template$<$class T$>$ \\
+std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os}{, }\item[{const \mbox{\hyperlink{classssuds_1_1_array_list}{Array\+List}}$<$ T $>$ \&}]{alist}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Overloads the stream operator for Array\+Lists. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & an ostream object (ofstream, stringstream, cout, etc.) \\
+\hline
+{\em alist} & the \doxylink{classssuds_1_1_array_list}{Array\+List}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the (possibly modified) os that was given to us
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/ssuds/array\+\_\+list.\+h\end{DoxyCompactItemize}

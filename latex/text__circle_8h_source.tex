@@ -1,0 +1,57 @@
+\doxysection{text\+\_\+circle.\+h}
+\hypertarget{text__circle_8h_source}{}\label{text__circle_8h_source}\index{include/ssuds\_drawing/text\_circle.h@{include/ssuds\_drawing/text\_circle.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#pragma\ warning(disable:4275)}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <SFML/Window.hpp>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <SFML/System.hpp>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <cstddef>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }ssuds\_drawing}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{class\ }TextCircle}
+\DoxyCodeLine{00015\ \ \ \ \ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ sf::Text\ \mbox{\hyperlink{classssuds__drawing_1_1_text_circle_ae03601f0c645810875fd825f63ebfedf}{mText}};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ sf::CircleShape\ \mbox{\hyperlink{classssuds__drawing_1_1_text_circle_a6d7aa4045ca2b82f97914056cbfe58e2}{mCircle}};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ sf::FloatRect\ \mbox{\hyperlink{classssuds__drawing_1_1_text_circle_a30cb13b3a4a7ee0f5bc0a427b49b2b1d}{mTextRect}};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ TextCircle(\textcolor{keyword}{const}\ sf::Font\&\ f,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ font\_size);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classssuds__drawing_1_1_text_circle_ad2f00b709885c5da367270ae66074b12}{TextCircle}}(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keyword}{const}\ sf::Font\&\ font\_ref,\ std::string\ text,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ font\_size);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classssuds__drawing_1_1_text_circle_aa789d412ff41c2c0dab03094671e5f8a}{draw}}(\textcolor{comment}{/*sf::RenderTarget*/}\ sf::RenderWindow\&\ target)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classssuds__drawing_1_1_text_circle_af30b59ae2731165bb1257ce311847f6c}{set\_circle\_color}}(\textcolor{keyword}{const}\ sf::Color\&\ c);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classssuds__drawing_1_1_text_circle_a228cbaff4ea3031cc53dd9169f622100}{set\_font\_color}}(\textcolor{keyword}{const}\ sf::Color\&\ c);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ sf::Vector2f\ \mbox{\hyperlink{classssuds__drawing_1_1_text_circle_a7bfd1d1e5f3f53295dc32d998ab962be}{get\_position}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classssuds__drawing_1_1_text_circle_ad184e8ef29e8fb3fa15d39afb3ecda7e}{get\_string}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ sf::Color\ \mbox{\hyperlink{classssuds__drawing_1_1_text_circle_a0fc29eee97e4e638d03f69d6ff4e170f}{get\_color}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classssuds__drawing_1_1_text_circle_a9ab6a2a04abace768350d2b9a88d0db0}{set\_position}}(\textcolor{keyword}{const}\ sf::Vector2f\&\ p);}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classssuds__drawing_1_1_text_circle_a22fa668f117936e01ef46dbcc3b14861}{set\_string}}(\textcolor{keyword}{const}\ std::string\&\ s);}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classssuds__drawing_1_1_text_circle_af0dcd1a0e7aef895d660cd7491fabbf5}{point\_inside}}(\textcolor{keyword}{const}\ sf::Vector2f\ v)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ circle\_overlaps(\textcolor{keyword}{const}\ sf::Vector2f\&\ other\_center,\ \textcolor{keywordtype}{float}\ other\_radius);}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ get\_degrees();}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ set\_degrees(\textcolor{keywordtype}{float}\ new\_degrees);}
+\DoxyCodeLine{00108\ \ \ \ \ \};}
+\DoxyCodeLine{00109\ \}}
+\DoxyCodeLine{00110\ }
+
+\end{DoxyCode}
