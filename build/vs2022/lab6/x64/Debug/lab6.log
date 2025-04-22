@@ -1,0 +1,57 @@
+﻿  lab6.cpp
+C:\Users\bryce\OneDrive\Documents\GitHub\ETEC2101_01\include\ssuds\linked_list.h(401,22): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file '../../src/lab6.cpp')
+      C:\Users\bryce\OneDrive\Documents\GitHub\ETEC2101_01\include\ssuds\linked_list.h(401,22):
+      the template instantiation context (the oldest one first) is
+          C:\Users\bryce\OneDrive\Documents\GitHub\ETEC2101_01\src\lab6.cpp(8,33):
+          see reference to class template instantiation 'ssuds::LinkedList<std::string>' being compiled
+          C:\Users\bryce\OneDrive\Documents\GitHub\ETEC2101_01\include\ssuds\linked_list.h(394,5):
+          while compiling class template member function 'T ssuds::LinkedList<T>::remove(unsigned int)'
+          with
+          [
+              T=std::string
+          ]
+              C:\Users\bryce\OneDrive\Documents\GitHub\ETEC2101_01\src\lab6.cpp(48,14):
+              see the first reference to 'ssuds::LinkedList<std::string>::remove' in 'main'
+  
+C:\Users\bryce\OneDrive\Documents\GitHub\ETEC2101_01\include\ssuds\linked_list.h(353,18): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file '../../src/lab6.cpp')
+      C:\Users\bryce\OneDrive\Documents\GitHub\ETEC2101_01\include\ssuds\linked_list.h(353,18):
+      the template instantiation context (the oldest one first) is
+          C:\Users\bryce\OneDrive\Documents\GitHub\ETEC2101_01\include\ssuds\linked_list.h(347,7):
+          while compiling class template member function 'int ssuds::LinkedList<std::string>::find(const T &,const unsigned int) const'
+          with
+          [
+              T=std::string
+          ]
+              C:\Users\bryce\OneDrive\Documents\GitHub\ETEC2101_01\src\lab6.cpp(52,34):
+              see the first reference to 'ssuds::LinkedList<std::string>::find' in 'main'
+  
+C:\Users\bryce\OneDrive\Documents\GitHub\ETEC2101_01\include\ssuds\linked_list.h(337,22): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file '../../src/lab6.cpp')
+      C:\Users\bryce\OneDrive\Documents\GitHub\ETEC2101_01\include\ssuds\linked_list.h(337,22):
+      the template instantiation context (the oldest one first) is
+          C:\Users\bryce\OneDrive\Documents\GitHub\ETEC2101_01\include\ssuds\linked_list.h(334,6):
+          while compiling class template member function 'T &ssuds::LinkedList<T>::at(unsigned int) const'
+          with
+          [
+              T=std::string
+          ]
+              C:\Users\bryce\OneDrive\Documents\GitHub\ETEC2101_01\src\lab6.cpp(47,27):
+              see the first reference to 'ssuds::LinkedList<std::string>::at' in 'main'
+  
+C:\Users\bryce\OneDrive\Documents\GitHub\ETEC2101_01\include\ssuds\linked_list.h(267,23): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file '../../src/lab6.cpp')
+      C:\Users\bryce\OneDrive\Documents\GitHub\ETEC2101_01\include\ssuds\linked_list.h(267,23):
+      the template instantiation context (the oldest one first) is
+          C:\Users\bryce\OneDrive\Documents\GitHub\ETEC2101_01\include\ssuds\linked_list.h(248,8):
+          while compiling class template member function 'void ssuds::LinkedList<std::string>::insert(const T &,unsigned int)'
+          with
+          [
+              T=std::string
+          ]
+              C:\Users\bryce\OneDrive\Documents\GitHub\ETEC2101_01\src\lab6.cpp(14,14):
+              see the first reference to 'ssuds::LinkedList<std::string>::insert' in 'main'
+  
+C:\Users\bryce\OneDrive\Documents\GitHub\ETEC2101_01\include\ssuds\linked_list.h(415,1): warning C4715: 'ssuds::LinkedList<std::basic_string<char,std::char_traits<char>,std::allocator<char> > >::remove': not all control paths return a value
+  lab6.vcxproj -> C:\Users\bryce\OneDrive\Documents\GitHub\ETEC2101_01\build\vs2022\x64\Debug\lab6.exe

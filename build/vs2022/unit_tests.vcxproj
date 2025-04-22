@@ -14,6 +14,7 @@
     <ClCompile Include="..\..\src\ssuds\array_list_tests.cpp" />
     <ClCompile Include="..\..\src\ssuds\array_list_utility_tests.cpp" />
     <ClCompile Include="..\..\src\ssuds\ssuds_unit_tests_main.cpp" />
+    <ClCompile Include="unit_tests\linked_list_tests.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
