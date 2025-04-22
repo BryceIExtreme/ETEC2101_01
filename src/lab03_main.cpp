@@ -129,9 +129,7 @@ int main(int argc, char** argv)
 	std::cout << "test10 (find/remove variants):\n=====\n";	// test10 (find/remove variants)
 															// ======
 	flist5 = ssuds::ArrayList<float>{ 4.0f, 3.0f, 3.0f, 4.0f, 5.0f, 3.0f, 4.0f, 3.0f, 4.0f };
-	
-	
-	//     removed an occurrence of 4.0
+	it = flist5.find(4.0f, flist5.begin());					//     removed an occurrence of 4.0
 	while (it != flist5.end())								//     removed an occurrence of 4.0
 	{														//     removed an occurrence of 4.0
 		std::cout << "\tremoved an occurrence of 4.0\n";		//     removed an occurrence of 4.0

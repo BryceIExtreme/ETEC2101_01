@@ -75,7 +75,7 @@ namespace ssuds
 			/// <summary>
 			/// This constructor only really has value if the user makes an iterator (BUT DOES NOT USE!)
 			/// and then later assigns it a real value.  If the user does anything with an iterator
-			/// created like this, bad things will happen...
+			/// created like this, bad thigs will happen...
 			/// </summary>
 			ArrayListIterator() : mArrayList(nullptr), mType(ArrayListIteratorType::forward), mPosition(0)
 			{
