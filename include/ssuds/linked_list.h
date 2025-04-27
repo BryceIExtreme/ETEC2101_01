@@ -153,9 +153,37 @@ namespace ssuds
 			other.mSize = 0;
 		}
 
-		LinkedList(const LinkedList& other) : mStart(other.mStart), mEnd(other.mEnd), mSize(other.mSize)
+		LinkedList(const LinkedList& other) : LinkedList()
 		{
-			
+			for (Node* current = other.mStart; current; current = current->mNext) 
+			{
+				append(current->mData);
+			}
+		}
+
+		LinkedList(std::initializer_list<T> ilist) : mSize((int)ilist.size())
+		{
+			if (ilist.size() > 0)
+			{
+				auto it = ilist.begin();
+				mStart = new Node{ *it, nullptr, nullptr }; // Create the first node
+				Node* current = mStart;
+				++it;
+
+				for (; it != ilist.end(); ++it)
+				{
+					Node* new_node = new Node{ *it, nullptr, current };
+					current->mNext = new_node;
+					current = new_node;
+				}
+
+				mEnd = current; // Set the last node
+			}
+			else
+			{
+				mStart = nullptr;
+				mEnd = nullptr;
+			}
 		}
 
 		/// <summary>
@@ -442,6 +470,7 @@ namespace ssuds
 			if (it.mCurrentNode == mStart && it.mCurrentNode->mData == val)
 			{
 				it.mCurrentNode->mNext->mPrevious = nullptr;
+				it.mCurrentNode->mNext = mStart;
 				mSize--;
 				it.mCurrentNode = it.mCurrentNode->mNext;
 			}
@@ -458,6 +487,7 @@ namespace ssuds
 			if (it.mCurrentNode == mEnd && it.mCurrentNode->mData == val)
 			{
 				it.mCurrentNode->mPrevious->mNext = nullptr;
+				it.mCurrentNode->mPrevious = mEnd;
 				mSize--;
 			}
 		}

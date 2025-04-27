@@ -51,12 +51,18 @@ int main()
 	std::cout << llist.at(3) << "\n"; //Doug
 	std::cout << llist.find("Carl") << "\n"; //2
 
+
+	ssuds::LinkedList<std::string> llist3 = llist2;
 	llist2.clear();
-	std::cout << llist2 << "\n";
+	std::cout << "This list consists of:" << "\n";
+	for (unsigned int i = 0; i < llist3.size(); i++)
+	{
+		std::cout << i << "\t" << llist3[i] << "\n";
+	}
+
 	
 	ssuds::LinkedList<std::string>::LinkedListIterator it2 = llist.begin();
 	ssuds::LinkedList<std::string>::LinkedListIterator it3 = llist.begin();
-	ssuds::LinkedList<std::string>::LinkedListIterator it4 = llist.begin();
 
 	it2 = llist.find("Carl", llist.begin());
 	std::cout << *it2 << "\n";
@@ -69,15 +75,10 @@ int main()
 	}
 	it2= llist.remove(it2);
 	std::cout << *it2 << "\n";
-	std::cout << "This list consists of:" << "\n";
-	for (unsigned int i = 0; i < llist.size(); i++)
-	{
-		std::cout << i << "\t" << llist[i] << "\n";
-	}
 	llist.append("Neveah");
 	llist.append("Neveah");
 	llist.prepend("Neveah");
-	llist.remove_all("Neveah", it4);
+	llist.remove_all("Neveah", it3);
 	std::cout << "This list consists of:" << "\n";
 	for (unsigned int i = 0; i < llist.size(); i++)
 	{

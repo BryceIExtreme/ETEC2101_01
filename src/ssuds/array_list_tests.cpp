@@ -285,17 +285,19 @@ ssuds::ArrayList<float> move_func()
 	ssuds::ArrayList<float> result;
 	result.append(3.1f);
 	result.append(4.2f);
+	result.append(5.3f);
+	result.append(6.4f);
 	return result;
 }
 
 TEST_F(ArrayListTestFixture, MoveConstructor)
 {
 	ssuds::ArrayList<float> my_arr = move_func();
-	ASSERT_EQ(my_arr.size(), 2);
+	ASSERT_EQ(my_arr.size(), 4);
 	EXPECT_EQ(my_arr[0], 3.1f);
 	EXPECT_EQ(my_arr[1], 4.2f);
-	my_arr.remove(0);
-	EXPECT_EQ(my_arr.size(), 1);
+	my_arr.remove(1);
+	EXPECT_EQ(my_arr.size(), 3);
 }
 
 
