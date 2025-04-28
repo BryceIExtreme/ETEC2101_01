@@ -1,0 +1,8 @@
+A Node A
+C Node C
+D Node D
+E Node E
+F Node F
+A D 4.5
+E F 5
+F A 6
