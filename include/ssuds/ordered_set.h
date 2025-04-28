@@ -5,6 +5,8 @@
 #include "iostream"
 #include "array_list.h"
 #include <optional>
+#include "linked_list.h"
+
 
 
 namespace ssuds
@@ -20,7 +22,7 @@ namespace ssuds
 		// Just like LinkedList, I don't want outside users to see this AT ALL!!!
 		class Node
 		{
-		friend class OrderedSet;
+			friend class OrderedSet;
 		private:
 			T mData;
 			Node* mLeft;
@@ -45,15 +47,21 @@ namespace ssuds
 					delete mRight;
 				}
 			}
+			const T& getData() const 
+			{
+				return mData;
+			}
 
-
-			int size_rec(Node* node) const 
+			int size_rec(Node* node) const
 			{
 				if (node == nullptr) {
 					return 0;
 				}
 				else {
-					return 1 + get_size(node->mLeft) + get_size(node->mRight);
+					int leftSize = size_rec(node->mLeft);
+					int rightSize = size_rec(node->mRight);
+					int totalSize = 1 + leftSize + rightSize;
+					return totalSize;
 				}
 			}
 
@@ -73,6 +81,7 @@ namespace ssuds
 
 			bool insert_recursive(const T& new_val)
 			{
+				if (this == nullptr) return false;
 				if (new_val == mData)
 					return false;			// It's a duplicate -- stop!
 				else if (new_val < mData)
@@ -107,15 +116,14 @@ namespace ssuds
 					}
 				}
 			}
-			void traversal_rec(ssuds::ArrayList<T>& values, TraversalType order, int& index) const
-			{
+			void traversal_rec(ssuds::ArrayList<T>& values, TraversalType order, int& index) const {
 				if (this == nullptr) {
 					return; // Base case: stop recursion if the node is null
 				}
 
 				// Pre-order: Process current node before left and right children
 				if (order == ssuds::TraversalType::PRE_ORDER) {
-					values[index++] = this->mData;
+					values.push_back(this->mData); // Use push_back
 				}
 
 				// Traverse the left subtree
@@ -125,7 +133,7 @@ namespace ssuds
 
 				// In-order: Process current node between left and right children
 				if (order == ssuds::TraversalType::IN_ORDER) {
-					values[index++] = this->mData;
+					values.push_back(this->mData); // Use push_back
 				}
 
 				// Traverse the right subtree
@@ -135,72 +143,63 @@ namespace ssuds
 
 				// Post-order: Process current node after left and right children
 				if (order == ssuds::TraversalType::POST_ORDER) {
-					values[index++] = this->mData;
+					values.push_back(this->mData); // Use push_back
 				}
 			}
 
 
-			Node* erase_rec(const T& val)
-			{
-				if (val == mData)
-				{
-					//need to remove
-					//need to return true
-					if (!mLeft && !mRight)
-					{
+			Node* erase_rec(const T& val) {
+				if (val == mData) {
+					if (!mLeft && !mRight) {
 						delete this;
 						return nullptr;
 					}
-					else if (mLeft && mRight)
-					{
-						Node* succ = get_successor(val);
+					else if (mLeft && mRight) {
+						Node* succ = succ_rec(val);
 						mData = succ->mData;
-						mRight->erase_rec(mData);
+						mRight = mRight->erase_rec(mData);
 					}
-					else if (mLeft && !mRight)
-					{
+					else if (mLeft && !mRight) {
 						Node* temp = mLeft;
 						mLeft = nullptr;
 						delete this;
 						return temp;
 					}
-					else if (!mLeft && mRight)
-					{
+					else if (!mLeft && mRight) {
 						Node* temp = mRight;
 						mRight = nullptr;
 						delete this;
 						return temp;
 					}
-
-					else if (val < mData && mLeft != nullptr)
-					{
-						mLeft = mLeft->erase_rec(val);
-					}
-					else if (val > mData && mRight)
-					{
-						mRight = mRight->erase_rec(val);
-					}
-					//We somehow got nothing
-					return this;
 				}
+				else if (val < mData && mLeft != nullptr) {
+					mLeft = mLeft->erase_rec(val);
+				}
+				else if (val > mData && mRight != nullptr) {
+					mRight = mRight->erase_rec(val);
+				}
+				return this;
 			}
 
 
-			std::optional<Node*> parent_rec( const T& val) const 
+
+
+			std::optional<Node*> parent_rec(const T& val) const
 			{
 				if (this == nullptr || this->mData == val) {
-					return false;
+					return std::nullopt; // Return an empty optional if the current node is null or matches the value
 				}
-				else if ((this->mLeft != nullptr && this->mLeft->mDaa == val) ||
+				else if ((this->mLeft != nullptr && this->mLeft->mData == val) ||
 					(this->mRight != nullptr && this->mRight->mData == val)) {
-					return this;
+					return const_cast<Node*>(this); // Cast away constness to return a non-const Node*
 				}
-				else if (val < this->mData) {
-					return parent_rec(val);
+				else if (val < this->mData && mLeft != nullptr) {
+					return mLeft->parent_rec(val); // Recur on the left subtree
 				}
-				else {
-					return parent_rec(val);
+				else if (val > this->mData && mRight != nullptr) {
+					return mRight->parent_rec(val); // Recur on the right subtree
 				}
+				return std::nullopt; // Return an empty optional if no parent is found
 			}
 
 
@@ -220,54 +219,47 @@ namespace ssuds
 				else {
 					return mRight && mRight->contains_recursive(val);
 				}
-				if (this->mLeft == nullptr && this->mRight == nullptr) 
+				if (this->mLeft == nullptr && this->mRight == nullptr)
 				{
 					return false;
 				}
 			}
 
 
-			int height_rec() const {
-				if (this == nullptr) {
+			int height_rec(Node* node) const {
+				if (node == nullptr) {
 					return 0;
 				}
-				else {
-					return 1 + std::max(get_height(this->mLeft), get_height(this->mRight));
-				}
+				return 1 + std::max(height_rec(node->mLeft), height_rec(node->mRight));
 			}
 
 
-			Node* succ_rec(const T& val) const
+			Node* succ_rec(const T& val)
 			{
-				Node* node = mRoot;
+				Node* node = this; // Start from the current node
 				Node* successor = nullptr;
 
 				while (node != nullptr) {
 					if (val < node->mData) {
-						successor = node;
+						successor = node; // Update successor
 						node = node->mLeft;
 					}
-					else if (val > node->value) {
+					else if (val > node->mData) {
 						node = node->mRight;
 					}
 					else {
-						if (node->right != nullptr) {
-							successor = find_min(node->mRight);
+						if (node->mRight != nullptr) {
+							successor = find_min(node->mRight); // Find the minimum in the right subtree
 						}
 						break;
 					}
 				}
 
-				if (successor != nullptr) {
-					return successor->mData;
-				}
-				else {
-					return nullptr;
-				}
+				return successor; // Return the successor node
 			}
 
 
-			Node* find_min(Node* node) const 
+			Node* find_min(Node* node) const
 			{
 				while (node->mLeft != nullptr) {
 					node = node->mLeft;
@@ -275,21 +267,72 @@ namespace ssuds
 				return node;
 			}
 
+			static Node* rebalance_rec(const ssuds::ArrayList<T>& values, int start, int end) {
+				if (start > end) {
+					return nullptr; // Base case: no elements to process
+				}
 
+				// Find the middle element
+				int mid = start + (end - start) / 2;
 
+				// Create a new node with the middle element
+				Node* newNode = new Node(values[mid]);
 
+				// Recursively build the left and right subtrees
+				newNode->mLeft = rebalance_rec(values, start, mid - 1);
+				newNode->mRight = rebalance_rec(values, mid + 1, end);
 
-
+				return newNode;
+			}
 		}; // end of Node class
 
-		// OrderedSetIterator here
-		public:
-			class OrderedSetIterator
-			{
 
-			};
-		// Attributes for OrderedSet itself.
-	private:
+
+
+	public:
+		// In-Order Iterator
+		class InOrderIterator
+		{
+		private:
+			LinkedList<Node*> mStack; // Using LinkedList as a stack
+			Node* mCurrent;
+
+		public:
+			InOrderIterator(Node* root) : mCurrent(root) {
+				// Initialize the stack with the leftmost path
+				while (mCurrent != nullptr) {
+					mStack.push_front(mCurrent);
+					mCurrent = mCurrent->mLeft;
+				}
+			}
+
+			bool has_next() const {
+				return !mStack.is_empty();
+			}
+
+			const T& next()
+			{
+				if (mStack.is_empty()) {
+					throw std::out_of_range("No more elements in the iterator");
+				}
+
+				// Pop the top node from the stack
+				mCurrent = mStack.pop_front();
+
+				// Save the data to return
+				const T& result = mCurrent->mData;
+
+				// If the current node has a right child, push its leftmost path onto the stack
+				mCurrent = mCurrent->mRight;
+				while (mCurrent != nullptr) {
+					mStack.push_front(mCurrent);
+					mCurrent = mCurrent->mLeft;
+				}
+
+				return result;
+			}
+		};
+
 		unsigned int mSize;
 		Node* mRoot;
 	public:
@@ -307,13 +350,18 @@ namespace ssuds
 				delete mRoot;
 		}
 
-		void clear() 
+		void clear()
 		{
-			clear_rec(mRoot);
+			if (mRoot != nullptr) {
+				mRoot->clear(mRoot);
+				mRoot = nullptr; // Ensure the root is reset
+				mSize = 0;       // Reset the size
+			}
 		}
 
 		unsigned int get_size() const 
-		{ return size_rec(mRoot); 
+		{ 
+			return mRoot->size_rec(mRoot); 
 		}
 
 
@@ -330,8 +378,7 @@ namespace ssuds
 			{
 				// We already have a root -- let it handle the rest
 				bool result = mRoot->insert_recursive(val);
-				if (result)
-					mSize++;
+				return result;
 			}
 		}
 
@@ -344,11 +391,19 @@ namespace ssuds
 		}
 
 
-		ssuds::ArrayList<T> traversal(ssuds::TraversalType order) const 
+		ssuds::ArrayList<T> traversal(ssuds::TraversalType order) const
 		{
 			ssuds::ArrayList<T> values;
-			int index = 0;
-			mRoot->traversal_rec(values, order, index);
+			if (mRoot) {
+				int treeSize = mRoot->size_rec(mRoot); // Calculate the size of the tree
+
+				values.reserve(treeSize);             // Reserve capacity in the ArrayList
+				int index = 0;
+				mRoot->traversal_rec(values, order, index);
+			}
+			else {
+				std::cout << "Traversal failed: mRoot is nullptr" << std::endl;
+			}
 			return values;
 		}
 
@@ -364,26 +419,44 @@ namespace ssuds
 
 		void rebalance()
 		{
-			ssuds::ArrayList<T> io = traversal(TraversalType::IN_ORDER);
-			clear();
-			mRoot = rebalance_rec(io, 0, io.size() - 1);
+			ssuds::ArrayList<T> io = traversal(TraversalType::IN_ORDER); // Collect elements in sorted order
+			clear(); // Clears the tree
+			mRoot = Node::rebalance_rec(io, 0, io.size() - 1); // Rebuild the tree from the sorted list
+			mSize = io.size(); // Update the size of the tree
 		}
 		
 
 		int get_height() const 
 		{ 
-			return this->height_rec(); 
+			return mRoot->height_rec(mRoot);
 		}
 
 		int get_succesor(const T& val) const
 		{
-			return this->succ_rec(val);
+			if (!mRoot) {
+				throw std::runtime_error("Tree is empty");
+			}
+			if (!contains(val)) {
+				throw std::runtime_error("Value not found in the tree");
+			}
+			Node* successorNode = mRoot->succ_rec(val);
+			if (successorNode != nullptr) {
+				return successorNode->mData; // Return the data of the successor node
+			}
+			else {
+				throw std::runtime_error("Successor not found");
+			}
 		}
 
 		std::optional<Node*> get_parent(const T& val) const 
 		{
-			return this->parent_rec(val);
+			return mRoot->parent_rec(val);
 		}
+
+		InOrderIterator begin_in_order() const {
+			return InOrderIterator(mRoot);
+		}
+
 
 	};
 }

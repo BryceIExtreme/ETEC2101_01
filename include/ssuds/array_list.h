@@ -68,7 +68,7 @@ namespace ssuds
 			/// <param name="start_index">The index to start on</param>
 			ArrayListIterator(const ArrayList* arr, ArrayListIteratorType tp, int start_index) : mArrayList(arr), mPosition(start_index), mType(tp)
 			{
-				// intentionally empty
+				// intentionally emptyf
 			}
 
 
@@ -701,7 +701,12 @@ namespace ssuds
 			return mSize;
 		}
 
-
+		void push_back(const T& value) {
+			if (mSize >= mCapacity) {
+				reserve(mCapacity == 0 ? 1 : mCapacity * 2); // Double the capacity
+			}
+			mData[mSize++] = value;
+		}
 	protected:
 		/// <summary>
 		/// An internal method to resize the array if we are currently at capacity (if we are not, nothing is done)

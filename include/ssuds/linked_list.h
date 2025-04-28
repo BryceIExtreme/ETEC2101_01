@@ -398,6 +398,59 @@ namespace ssuds
 			return -1;
 		}
 
+		void push_front(const T& val)
+		{
+			Node* new_node = new Node;
+			new_node->mData = val;
+			new_node->mNext = mStart;
+			new_node->mPrevious = nullptr;
+
+			if (mStart != nullptr)
+			{
+				mStart->mPrevious = new_node;
+			}
+			else
+			{
+				mEnd = new_node; // If the list was empty, the new node is also the end
+			}
+
+			mStart = new_node;
+			mSize++;
+		}
+
+		T pop_front()
+		{
+			if (mStart == nullptr) {
+				throw std::out_of_range("Cannot pop from an empty list");
+			}
+
+			// Store the data of the first node
+			T data = mStart->mData;
+
+			// Move the start pointer to the next node
+			Node* temp = mStart;
+			mStart = mStart->mNext;
+
+			// If the list is not empty, update the previous pointer of the new start node
+			if (mStart != nullptr) {
+				mStart->mPrevious = nullptr;
+			}
+			else {
+				// If the list is now empty, update the end pointer
+				mEnd = nullptr;
+			}
+
+			// Delete the old start node and decrease the size
+			delete temp;
+			mSize--;
+
+			return data;
+		}
+
+		bool is_empty() const {
+			return mSize == 0;
+		}
+
 		LinkedListIterator find(const T& val, const LinkedListIterator& start) const
 		{
 			LinkedListIterator temp = start;
